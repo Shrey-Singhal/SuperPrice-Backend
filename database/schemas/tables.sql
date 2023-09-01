@@ -1,3 +1,18 @@
+# Temporarily disable foreign key checks to prevent integrity constraints when dropping tables
+SET FOREIGN_KEY_CHECKS = 0;
+
+DROP TABLE IF EXISTS Users;
+DROP TABLE IF EXISTS Supermarkets;
+DROP TABLE IF EXISTS Products;
+DROP TABLE IF EXISTS ProductPrices;
+DROP TABLE IF EXISTS ProductRewards;
+DROP TABLE IF EXISTS UserAddresses;
+DROP TABLE IF EXISTS Orders;
+DROP TABLE IF EXISTS OrderProducts;
+DROP TABLE IF EXISTS UserOrderHistory;
+DROP TABLE IF EXISTS UserRewardsPoints;
+DROP TABLE IF EXISTS RewardsLevels;
+
 CREATE TABLE Users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     user_name VARCHAR(50) NOT NULL,
@@ -108,4 +123,4 @@ CREATE TABLE RewardsLevels (
     rewards_level_name VARCHAR(50) NOT NULL,
     required_points_amount DECIMAL(10, 2) NOT NULL
     # ADD ANY ADDITIONAL FIELDS NEEDED
-)
+);
