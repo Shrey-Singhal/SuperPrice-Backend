@@ -8,11 +8,11 @@
         <version>3.1.2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>au.edu.rmit.sept.cinemas</groupId>
-    <artifactId>movies</artifactId>
+    <groupId>team-project=group-p05-04</groupId>
+    <artifactId>SuperPrice</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>movies</name>
-    <description>movies</description>
+    <name>SuperPrice</name>
+    <description>SuperPrice</description>
     <properties>
         <java.version>17</java.version>
     </properties>
@@ -20,6 +20,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
         </dependency>
 
         <dependency>
