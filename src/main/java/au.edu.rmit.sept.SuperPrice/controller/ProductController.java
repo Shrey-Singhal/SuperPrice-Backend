@@ -1,7 +1,7 @@
-package au.edu.rmit.sept.shoppingApp.controller;
+package au.edu.rmit.sept.SuperPrice.controller;
 
-import au.edu.rmit.sept.shoppingApp.model.Product;
-import au.edu.rmit.sept.shoppingApp.service.ProductService;
+import au.edu.rmit.sept.SuperPrice.model.Product;
+import au.edu.rmit.sept.SuperPrice.service.ProductService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

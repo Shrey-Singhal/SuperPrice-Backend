@@ -1,6 +1,6 @@
-package au.edu.rmit.sept.shoppingApp.repository;
+package au.edu.rmit.sept.SuperPrice.repository;
 
-import au.edu.rmit.sept.shoppingApp.model.Product;
+import au.edu.rmit.sept.SuperPrice.model.Product;
 
 import java.util.List;
 
