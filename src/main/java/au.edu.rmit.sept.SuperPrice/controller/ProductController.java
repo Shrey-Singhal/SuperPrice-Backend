@@ -24,7 +24,4 @@ public class ProductController {
         return "Hello";
     }
 
-
-
-
 }

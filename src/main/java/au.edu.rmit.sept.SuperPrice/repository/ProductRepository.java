@@ -1,9 +1,8 @@
 package au.edu.rmit.sept.SuperPrice.repository;
 
 import au.edu.rmit.sept.SuperPrice.model.Product;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
-public interface ProductRepository {
-    public List<Product> listAll();
-}
+@Repository
+public interface ProductRepository extends JpaRepository<Product> {}
