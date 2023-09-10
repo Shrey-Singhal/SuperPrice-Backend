@@ -8,7 +8,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "Orders") // Specify table name?
-public record Order(int orderId, int userId, int deliverAddressId, String orderStatus, double orderTotalPrice, double orderTotalRewards) {
+public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -24,7 +24,7 @@ public record Order(int orderId, int userId, int deliverAddressId, String orderS
     public Order(int orderId, int userId, int deliverAddressId, String orderStatus, double orderTotalPrice, double orderTotalRewards) {
         this.id = orderId;
         this.userId = userId;
-        this.deliverAddressId = deliverAddressId;
+        this.deliveryAddressId = deliverAddressId;
         this.orderStatus = orderStatus;
         this.orderTotalPrice = orderTotalPrice;
         this.orderTotalRewards = orderTotalRewards;

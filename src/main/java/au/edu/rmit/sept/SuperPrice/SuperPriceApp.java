@@ -1,13 +1,11 @@
-package au.edu.rmit.sept.shoppingApp;
+package au.edu.rmit.sept.SuperPrice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class shoppingApp {
-
+public class SuperPriceApp {
     public static void main(String[] args) {
-        SpringApplication.run(shoppingApp.class, args);
+        SpringApplication.run(SuperPriceApp.class, args);
     }
-
 }

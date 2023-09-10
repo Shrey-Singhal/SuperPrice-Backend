@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 
 @Entity
 //@Table(name = "Products") // Specify table name?
-public record Product(int id, String name, String category) {
+public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
