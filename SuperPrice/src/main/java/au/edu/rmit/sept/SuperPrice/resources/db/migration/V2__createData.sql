@@ -81,12 +81,12 @@ INSERT INTO ProductRewards (product_reward_id, product_id, supermarket_id, rewar
 
 
 # Populate Orders table
-INSERT INTO Orders (user_id, delivery_address_id, order_status, order_total, order_date) VALUES
-(1, 1, 'Delivered', 50.25, '2023-09-04 10:30:00'),
-(2, 2, 'Pending', 30.40, '2023-09-04 11:15:00'),
-(3, 3, 'Delivered', 45.60, '2023-09-04 12:00:00'),
-(4, 4, 'Pending', 25.00, '2023-09-04 14:20:00'),
-(5, 5, 'Shipped', 55.70, '2023-09-04 16:45:00');
+INSERT INTO Orders (user_id, delivery_address_id, order_status, order_total_price, order_total_rewards, order_date) VALUES
+(1, 1, 'Delivered', 50.25, 50, '2023-09-04 10:30:00'),
+(2, 2, 'Pending', 30.40, 30, '2023-09-04 11:15:00'),
+(3, 3, 'Delivered', 45.60, 46, '2023-09-04 12:00:00'),
+(4, 4, 'Pending', 25.00, 25, '2023-09-04 14:20:00'),
+(5, 5, 'Shipped', 55.70, 56, '2023-09-04 16:45:00');
 
 
 # Populate Order Products table
@@ -99,21 +99,21 @@ INSERT INTO OrderProducts (order_id, product_id, quantity, product_price) VALUES
 
 
 # Populate Order History table
-INSERT INTO UserOrderHistory (user_id, order_id, order_total, delivery_address_id, order_status, order_date) VALUES
-(1, 1, 50.25, 1, 'Delivered', '2023-09-04 10:30:00'),
-(2, 2, 30.40, 2, 'Pending', '2023-09-04 11:15:00'),
-(3, 3, 45.60, 3, 'Delivered', '2023-09-04 12:00:00'),
-(4, 4, 25.00, 4, 'Pending', '2023-09-04 14:20:00'),
-(5, 5, 55.70, 5, 'Shipped', '2023-09-04 16:45:00');
+INSERT INTO UserOrderHistory (user_id, order_id, order_total_price, order_total_rewards, delivery_address_id, order_status, order_date) VALUES
+(1, 1, 50.25, 1, 50, 'Delivered', '2023-09-04 10:30:00'),
+(2, 2, 30.40, 2, 30, 'Pending', '2023-09-04 11:15:00'),
+(3, 3, 45.60, 3, 46, 'Delivered', '2023-09-04 12:00:00'),
+(4, 4, 25.00, 4, 25, 'Pending', '2023-09-04 14:20:00'),
+(5, 5, 55.70, 5, 56, 'Shipped', '2023-09-04 16:45:00');
 
 
 # Populate User Rewards Points table
 INSERT INTO UserRewardsPoints (user_rewards_id, user_id, rewards_points, rewards_level_id) VALUES
 (1, 1, 0, 2),
-(2, 2, 100, 2),
-(3, 3, 200, 2),
-(4, 4, 300, 2),
-(5, 5, 1000, 3);
+(2, 2, 1000, 2),
+(3, 3, 5000, 2),
+(4, 4, 10000, 2),
+(5, 5, 25000, 3);
 
 # Populate Rewards Levels table
 INSERT INTO RewardsLevels (rewards_level_id, rewards_level_name, required_points_amount) VALUES

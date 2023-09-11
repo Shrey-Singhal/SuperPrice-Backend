@@ -7,7 +7,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.1.2</version>
+        <version>3.1.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -15,30 +15,40 @@
     <artifactId>SuperPrice</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>SuperPrice</name>
+<<<<<<<< HEAD:backend/SuperPrice/pom.xml
     <description>SuperPrice</description>
+========
+    <description>SuperPrice Web Application</description>
+
+>>>>>>>> e8d143f74338ee2830a53c12dba0044b6575e317:backend/pom.xml
     <properties>
         <java.version>17</java.version>
     </properties>
-
     <dependencies>
-        <!-- SpringBoot Dependencies -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-        <!-- JDBC Dependencies -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jdbc</artifactId>
         </dependency>
         <dependency>
+<<<<<<<< HEAD:backend/SuperPrice/pom.xml
+========
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-rest</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web-services</artifactId>
+        </dependency>
+        <dependency>
+>>>>>>>> e8d143f74338ee2830a53c12dba0044b6575e317:backend/pom.xml
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>
         </dependency>
@@ -47,11 +57,22 @@
             <artifactId>flyway-mysql</artifactId>
         </dependency>
 
+<<<<<<<< HEAD:backend/SuperPrice/pom.xml
         <!-- MySQL Dependencies -->
+========
+>>>>>>>> e8d143f74338ee2830a53c12dba0044b6575e317:backend/pom.xml
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.33</version>
+<<<<<<<< HEAD:backend/SuperPrice/pom.xml
+========
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+>>>>>>>> e8d143f74338ee2830a53c12dba0044b6575e317:backend/pom.xml
         </dependency>
 
         <dependency>
@@ -64,12 +85,19 @@
     </dependencies>
 
     <build>
+<!--        <resources>-->
+<!--            <resource>-->
+<!--                <directory>src/main/resources</directory>-->
+<!--            </resource>-->
+<!--        </resources>-->
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+<!--                <configuration>-->
+<!--                    <mainClass>backend.src.main.java.au.edu.rmit.sept.SuperPrice.SuperPriceApp</mainClass>-->
+<!--                </configuration>-->
             </plugin>
         </plugins>
     </build>
-
 </project>
