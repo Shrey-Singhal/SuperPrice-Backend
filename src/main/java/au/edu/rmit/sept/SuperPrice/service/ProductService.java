@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 @Service
 public class ProductService {
-    // repository instance
+    // Declare repository instance
     ProductRepository repository;
 
     // Initialise repository instance

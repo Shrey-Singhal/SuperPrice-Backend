@@ -4,10 +4,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-//import jakarta.persistence.Table;
+import jakarta.persistence.Table;
 
 @Entity
-//@Table(name = "Products") // Specify table name?
+@Table(name = "Products") // Specify table name
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,5 +22,9 @@ public class Product {
         this.id = id;
         this.name = name;
         this.category = category;
+    }
+
+    public String getProduct() {
+        return String.format("Product id: %d, name: %s, category: %s", this.id, this.name, this.category);
     }
 }

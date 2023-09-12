@@ -5,20 +5,25 @@ import au.edu.rmit.sept.SuperPrice.service.ProductService;
 
 import org.springframework.web.bind.annotation.*;
 
-@RestController
-@RequestMapping(value = "/v1/products")
-public class ProductController {
+import java.util.List;
 
+@RestController
+@RequestMapping(value = "/v1/products") // TODO: Update final URLs
+public class ProductController {
+    // Declare service instance
     ProductService service;
 
-    @GetMapping("/listAll")
-    public Iterable <Product> getThem(){
+    // TODO: Test & remove
+    @GetMapping("/test")
+    public String test(){
+        return "Hello from SuperPrice!";
+    }
+
+
+    @GetMapping("/All")
+    public List<Product> getProducts(){
         return service.getAllProducts();
     }
 
-    @GetMapping("/test")
-    public String test(){
-        return "Hello";
-    }
 
 }
