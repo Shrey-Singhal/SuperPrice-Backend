@@ -2,9 +2,7 @@ package au.edu.rmit.sept.SuperPrice.controller;
 
 import au.edu.rmit.sept.SuperPrice.model.Product;
 import au.edu.rmit.sept.SuperPrice.service.ProductService;
-
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
