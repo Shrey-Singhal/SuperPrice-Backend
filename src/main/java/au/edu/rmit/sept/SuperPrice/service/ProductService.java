@@ -9,21 +9,33 @@ import java.util.List;
 @Service
 public class ProductService {
     // Declare repository instances
-    ProductRepository productRepository;
-    UserRepository userRepository;
-    OrderRepository orderRepository;
-    ProductPriceRepository productPriceRepository;
+    @Autowired
+    private ProductRepository productRepository;
+
+    private UserRepository userRepository;
+
+    private OrderRepository orderRepository;
+
+    @Autowired
+    private ProductPriceRepository productPriceRepository;
 
 
     // Initialise repository instance
-    @Autowired
-    public ProductService(ProductRepository repository) {
-        this.productRepository = repository;
-    }
+//    @Autowired
+//    public ProductService(
+//            ProductRepository productRepository,
+////            UserRepository userRepository,
+////            OrderRepository orderRepository,
+//            ProductPriceRepository productPriceRepository) {
+//        this.productRepository = productRepository;
+////        this.userRepository = userRepository;
+////        this.orderRepository = orderRepository;
+//        this.productPriceRepository = productPriceRepository;
+//    }
 
     // TODO: Get all Products in the database
     public List<Product> getAllProducts() {
-        return productRepository.findAll();
+        return this.productRepository.findAll();
     }
 
     // TODO: Get User/s
@@ -35,9 +47,9 @@ public class ProductService {
     // TODO: Create (add) Order
 
     // TODO: Get Product/s by Name
-    public List<Product> getProductsByName(String productName) {
-        return productRepository.findProductsByName(productName);
-    }
+//    public List<Product> getProductsByName(String productName) {
+//        return productRepository.findProductsByName(productName);
+//    }
 
     // TODO: Get ProductPrice/s
     public List<ProductPrice> getProductPrices(int productId) {

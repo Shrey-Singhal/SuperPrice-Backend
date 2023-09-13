@@ -4,6 +4,7 @@ import au.edu.rmit.sept.SuperPrice.model.*;
 //import au.edu.rmit.sept.SuperPrice.model.ProductPrice;
 //import au.edu.rmit.sept.SuperPrice.service.ProductService;
 import au.edu.rmit.sept.SuperPrice.service.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -11,7 +12,8 @@ import java.util.List;
 @RequestMapping(value = "/Products") // TODO: Update final URLs
 public class ProductController {
     // Declare service instances
-    ProductService productService;
+    @Autowired
+    private ProductService productService;
 
     // TODO: Test & remove
     @GetMapping("/Test")
@@ -22,7 +24,7 @@ public class ProductController {
     // TODO: Test & remove if not needed
     @GetMapping("/All")
     public List<Product> getAllProducts(){
-        return productService.getAllProducts();
+        return this.productService.getAllProducts();
     }
 
     // TODO: Get ProductPrices for Product, given Product name

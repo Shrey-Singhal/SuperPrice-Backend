@@ -11,5 +11,5 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     List<Product> findAllByIdNotNull();
 
     // TODO: Find Products by Product Name -> Implement & test
-    List<Product> findProductsByName(String productName);
+//    List<Product> findProductsByName(String productName);
 }
