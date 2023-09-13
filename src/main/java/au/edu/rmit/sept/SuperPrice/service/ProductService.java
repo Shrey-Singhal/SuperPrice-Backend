@@ -1,30 +1,56 @@
 package au.edu.rmit.sept.SuperPrice.service;
 
-import au.edu.rmit.sept.SuperPrice.model.Product;
-import au.edu.rmit.sept.SuperPrice.repository.ProductRepository;
-
-import java.util.List;
+import au.edu.rmit.sept.SuperPrice.model.*;
+import au.edu.rmit.sept.SuperPrice.repository.*;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import java.util.List;
 
 @Service
 public class ProductService {
-    // Declare repository instance
-    ProductRepository repository;
+    // Declare repository instances
+    ProductRepository productRepository;
+    UserRepository userRepository;
+    OrderRepository orderRepository;
+    ProductPriceRepository productPriceRepository;
+
 
     // Initialise repository instance
     @Autowired
     public ProductService(ProductRepository repository) {
-        this.repository = repository;
+        this.productRepository = repository;
     }
 
-    // Get a list of all the products in the database TODO: Implement & test
+    // TODO: Get all Products in the database
     public List<Product> getAllProducts() {
-        return repository.findAll();
+        return productRepository.findAll();
     }
 
-    // Create a product TODO: Implement & test -> If necessary
-    public Product createProduct(Product product) {
-        return repository.save(product);
+    // TODO: Get User/s
+
+    // TODO: Create (add) User
+
+    // TODO: Get Order/s
+
+    // TODO: Create (add) Order
+
+    // TODO: Get Product/s by Name
+    public List<Product> getProductsByName(String productName) {
+        return productRepository.findProductsByName(productName);
     }
+
+    // TODO: Get ProductPrice/s
+    public List<ProductPrice> getProductPrices(int productId) {
+        return productPriceRepository.findProductPricesByProductId(productId);
+    }
+
+    // TODO: Add Products to Order & Update / Display Order Totals (Price & Rewards Points)
+
+    // TODO: Remove Products to Order & Update / Display Order Totals (Price & Rewards Points)
+
+    // TODO: Process Order -> Add Order to Order History & Update Users Rewards Points
+
+    // TODO: Get Users Rewards Points
+
+
 }
