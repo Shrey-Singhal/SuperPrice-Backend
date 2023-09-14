@@ -27,6 +27,12 @@ public class ProductController {
         return this.productService.getAllProducts();
     }
 
+    // TODO: Get Products by name
+//    @GetMapping("/getProductsByName/{productName}")
+//    public List<Product> getProductsByName(@RequestParam String productName) {
+//        return this.productService.getProductsByName(productName);
+//    }
+
     // TODO: Get ProductPrices for Product, given Product name
 //    @GetMapping("/getProductPrices")
 //    public List<ProductPrice> getProductPrices(@RequestParam String productName) {

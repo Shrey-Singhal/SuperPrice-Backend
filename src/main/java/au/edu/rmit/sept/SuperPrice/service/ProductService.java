@@ -38,6 +38,11 @@ public class ProductService {
         return this.productRepository.findAllByIdNotNull();
     }
 
+    // TODO: Get Product by name
+//    public List<Product> getProductsByName(String productName) {
+//        return this.productRepository.findProductsByName(productName);
+//    }
+
     // TODO: Get User/s
     public List<User> getAllUsers() {
         return this.userRepository.findAll();
