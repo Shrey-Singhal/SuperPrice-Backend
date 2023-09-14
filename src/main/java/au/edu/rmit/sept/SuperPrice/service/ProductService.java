@@ -35,10 +35,13 @@ public class ProductService {
 
     // TODO: Get all Products in the database
     public List<Product> getAllProducts() {
-        return this.productRepository.findAll();
+        return this.productRepository.findAllByIdNotNull();
     }
 
     // TODO: Get User/s
+    public List<User> getAllUsers() {
+        return this.userRepository.findAll();
+    }
 
     // TODO: Create (add) User
 
