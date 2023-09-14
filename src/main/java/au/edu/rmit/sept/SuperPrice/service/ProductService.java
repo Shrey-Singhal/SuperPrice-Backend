@@ -4,7 +4,10 @@ import au.edu.rmit.sept.SuperPrice.model.*;
 import au.edu.rmit.sept.SuperPrice.repository.*;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductService {
@@ -12,65 +15,59 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
 
+    @Autowired
     private UserRepository userRepository;
 
+    @Autowired
     private OrderRepository orderRepository;
 
     @Autowired
     private ProductPriceRepository productPriceRepository;
 
 
-    // Initialise repository instance
-//    @Autowired
-//    public ProductService(
-//            ProductRepository productRepository,
-////            UserRepository userRepository,
-////            OrderRepository orderRepository,
-//            ProductPriceRepository productPriceRepository) {
-//        this.productRepository = productRepository;
-////        this.userRepository = userRepository;
-////        this.orderRepository = orderRepository;
-//        this.productPriceRepository = productPriceRepository;
-//    }
-
-    // TODO: Get all Products in the database
+    // Get all Products
     public List<Product> getAllProducts() {
-        return this.productRepository.findAllByIdNotNull();
+        return this.productRepository.findAllBy();
     }
 
-    // TODO: Get Product by name
-//    public List<Product> getProductsByName(String productName) {
-//        return this.productRepository.findProductsByName(productName);
-//    }
+    // Get Product id by Name
+    public int getProductIdByProductName(String product_name) {
+        int product_id = productRepository.retrieveProductIdByProductName(product_name);
+        System.out.printf("Product ID: %d", product_id);
+        return product_id;
+    }
 
-    // TODO: Get User/s
+    // Get Product by id
+    public Optional<Product> getProductById(Long productId) {
+        return productRepository.findById(productId);
+    }
+
+    // Get all Users
     public List<User> getAllUsers() {
-        return this.userRepository.findAll();
+        return this.userRepository.findAllBy();
     }
 
     // TODO: Create (add) User
 
-    // TODO: Get Order/s
 
-    // TODO: Create (add) Order
-
-    // TODO: Get Product/s by Name
-//    public List<Product> getProductsByName(String productName) {
-//        return productRepository.findProductsByName(productName);
-//    }
-
-    // TODO: Get ProductPrice/s
-    public List<ProductPrice> getProductPrices(int productId) {
-        return productPriceRepository.findProductPricesByProductId(productId);
+    // Get all Orders
+    public List<Order> getAllOrders() {
+        return this.orderRepository.findAllBy();
     }
 
-    // TODO: Add Products to Order & Update / Display Order Totals (Price & Rewards Points)
+    // TODO: Create (add) Order based on shopping cart
 
-    // TODO: Remove Products to Order & Update / Display Order Totals (Price & Rewards Points)
+
+    // TODO: Get all ProductPrice/s
+//    public List<ProductPrice> getAllProductPrices() {
+//        return productPriceRepository.findAllBy();
+//    }
+
 
     // TODO: Process Order -> Add Order to Order History & Update Users Rewards Points
 
-    // TODO: Get Users Rewards Points
+
+    // TODO: Get Users Rewards Points given User email
 
 
 }

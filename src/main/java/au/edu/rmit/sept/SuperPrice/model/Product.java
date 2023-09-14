@@ -10,7 +10,7 @@ import jakarta.persistence.Table;
 @Table(name = "Products") // Specify table name
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int product_id;
     private String product_name;
     private String product_category;
@@ -18,25 +18,36 @@ public class Product {
     // Constructors
     public Product() {}
 
-    public Product(int id, String name, String category) {
-        this.product_id = id;
-        this.product_name = name;
-        this.product_category = category;
+    public Product(int product_id, String product_name, String product_category) {
+        this.product_id = product_id;
+        this.product_name = product_name;
+        this.product_category = product_category;
     }
 
-    public int getId() {
+    // Getters
+
+    public int getProductId() {
         return this.product_id;
     }
 
-    public String getName() {
+    public String getProductName() {
         return this.product_name;
     }
 
-    public String getCategory() {
+    public String getProductCategory() {
         return this.product_category;
     }
 
-    public String getProduct() {
-        return String.format("Product id: %d, name: %s, category: %s", this.product_id, this.product_name, this.product_category);
+    // Setters
+    public void setProductId(int product_id) {
+        this.product_id = product_id;
+    }
+
+    public void setProductName(String product_name) {
+        this.product_name = product_name;
+    }
+
+    public void setProductCategory(String product_category) {
+        this.product_category = product_category;
     }
 }

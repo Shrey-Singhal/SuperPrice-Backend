@@ -10,7 +10,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     // TODO: Add methods
 
     // TODO: Get all Users
-    List<User> findAllByIdNotNull();
+    List<User> findAllBy();
 
     // TODO: Find User rewards points by email address
 
