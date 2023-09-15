@@ -30,22 +30,27 @@ public class ProductService {
         return this.productRepository.findAllBy();
     }
 
-    // Get Product id by Name
-    public int getProductIdByProductName(String product_name) {
-        int product_id = productRepository.retrieveProductIdByProductName(product_name);
-        System.out.printf("Product ID: %d", product_id);
-        return product_id;
-    }
-
     // Get Product by id
     public Optional<Product> getProductById(Long productId) {
         return productRepository.findById(productId);
+    }
+
+    // Get Product id by Name
+    public Long getProductIdByProductName(String product_name) {
+        return productRepository.retrieveProductIdByProductName(product_name);
     }
 
     // Get all Users
     public List<User> getAllUsers() {
         return this.userRepository.findAllBy();
     }
+
+    // Get User by Email
+    public Optional<User> getUserByEmail(String email) {
+        return userRepository.findUserByEmail(email);
+    }
+
+    // TODO: Get User address id by User id
 
     // TODO: Create (add) User
 
@@ -56,18 +61,12 @@ public class ProductService {
     }
 
     // TODO: Create (add) Order based on shopping cart
+    // Get User by email
+    // Get User address by User id
 
-
-    // TODO: Get all ProductPrice/s
-//    public List<ProductPrice> getAllProductPrices() {
-//        return productPriceRepository.findAllBy();
-//    }
-
+    // TODO: Get all ProductPrice/s (Moshe)
 
     // TODO: Process Order -> Add Order to Order History & Update Users Rewards Points
-
-
-    // TODO: Get Users Rewards Points given User email
 
 
 }

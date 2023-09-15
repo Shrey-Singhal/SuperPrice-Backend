@@ -25,7 +25,6 @@ public class Product {
     }
 
     // Getters
-
     public int getProductId() {
         return this.product_id;
     }
@@ -37,6 +36,7 @@ public class Product {
     public String getProductCategory() {
         return this.product_category;
     }
+
 
     // Setters
     public void setProductId(int product_id) {
