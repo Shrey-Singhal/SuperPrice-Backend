@@ -77,8 +77,8 @@ CREATE TABLE UserAddresses (
     user_address_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
     address VARCHAR(200) NOT NULL,
-#     latitude DECIMAL(10, 6) NOT NULL,
-#     longitude DECIMAL(10, 6) NOT NULL,
+    latitude DECIMAL(10, 6) NOT NULL,
+    longitude DECIMAL(10, 6) NOT NULL,
     FOREIGN KEY (user_id) REFERENCES Users(user_id)
     # ADD ANY ADDITIONAL FIELDS NEEDED
 );
@@ -89,9 +89,9 @@ CREATE TABLE Orders (
     order_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
     delivery_address_id INT NOT NULL,
-    order_status VARCHAR(50),
-    order_total_price DECIMAL(10, 2),
-    order_total_rewards INT,
+    order_status VARCHAR(50) NOT NULL,
+    order_total_price DECIMAL(10, 2) NOT NULL,
+    order_total_rewards INT NOT NULL,
     order_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES Users(user_id),
     FOREIGN KEY (delivery_address_id) REFERENCES UserAddresses(user_address_id)
