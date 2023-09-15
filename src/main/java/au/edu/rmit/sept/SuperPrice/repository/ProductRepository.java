@@ -19,12 +19,13 @@ public interface ProductRepository extends PagingAndSortingRepository<Product, L
     // Find all Products
     List<Product> findAllBy();
 
-    // TODO: Find Products by product_name -> Currently getting the product id only
+    // TODO: Find Products by product_name
     @Query(value = "SELECT p.product_id FROM Product p WHERE LOWER(p.product_name) = LOWER(:product_name)")
     Long retrieveProductIdByProductName(@Param("product_name") String product_name);
 
+    //
 //    @Query(value = "SELECT p.product_name, p.product_id, p.product_category FROM Product p WHERE LOWER(p.product_name) = LOWER(:product_name)")
 //    Product findByName(@Param("product_name") String product_name);
-
+    //
 //    Product findAllProductsByProductName(@Param("product_name") String product_name);
 }

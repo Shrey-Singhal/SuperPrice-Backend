@@ -46,6 +46,10 @@ CREATE TABLE Products (
 );
 
 
+# Create Product Categories table
+
+
+
 # Create Product Prices table
 CREATE TABLE ProductPrices (
     product_price_id INT AUTO_INCREMENT PRIMARY KEY,

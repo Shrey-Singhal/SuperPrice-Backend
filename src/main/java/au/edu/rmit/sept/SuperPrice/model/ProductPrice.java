@@ -1,21 +1,23 @@
 package au.edu.rmit.sept.SuperPrice.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
 import java.sql.Timestamp;
 
 @Entity
 @Table(name = "ProductPrices") // Specify table name?
 public class ProductPrice {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "product_price_id", updatable = false)
     private int product_price_id;
+    @Column(name = "product_id", updatable = false)
     private int product_id;
+    @Column(name = "supermarket_id", updatable = false)
     private int supermarket_id;
+    @Column(name = "product_price")
     private double product_price;
+    @Column(name = "last_updated")
     private Timestamp last_updated;
 
     // Constructors
