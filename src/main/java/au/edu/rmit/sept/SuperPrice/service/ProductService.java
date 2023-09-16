@@ -33,6 +33,11 @@ public class ProductService {
         return this.productRepository.findAllBy();
     }
 
+    // Get all Products by category
+    public List<Product> getAllProductsByCategory(String product_category) {
+        return productRepository.findAllByCategory(product_category);
+    }
+
     // Get Product by id
     public Optional<Product> getProductById(Long productId) {
         return productRepository.findById(productId);
