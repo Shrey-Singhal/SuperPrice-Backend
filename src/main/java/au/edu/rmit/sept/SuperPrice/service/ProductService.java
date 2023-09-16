@@ -48,6 +48,12 @@ public class ProductService {
         return productRepository.retrieveProductIdByProductName(product_name);
     }
 
+    // TODO: Add a new Product to the database
+    public Product addProduct(Product product) {
+        // Add Product to the database
+        return productRepository.save(product);
+    }
+
     // Get all Users
     public List<User> getAllUsers() {
         return this.userRepository.findAllBy();
@@ -79,15 +85,20 @@ public class ProductService {
     // TODO: Process Order -> Add Order to Order History & Update Users Rewards Points
 
 
-    // TODO: Get all ProductPrice/s
+    // Get all ProductPrice/s
     public List<ProductPrice> getAllProductPrices() {
         int product_id = 1;
         return this.productPriceRepository.retrieveAllProductPrices();
     }
 
-    // TODO: Get Product Prices by Product id
+    // Get Product Prices by Product id
     public List<ProductPrice> getProductPricesByProductId(int product_id) {
         return this.productPriceRepository.retrieveProductPriceByProductId(product_id);
+    }
+
+    // Get Product Prices by Supermarket id
+    public List<ProductPrice> getProductPricesBySupermarketId(int supermarket_id) {
+        return this.productPriceRepository.retrieveProductPriceBySupermarketId(supermarket_id);
     }
 
 
