@@ -17,6 +17,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/SuperPrice") // TODO: Update final URLs
+@CrossOrigin(value = "http://localhost:5173")
 public class ProductController {
     // Declare service instance/s
     @Autowired
