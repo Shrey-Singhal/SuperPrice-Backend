@@ -87,7 +87,6 @@ public class ProductService {
 
     // Get all ProductPrice/s
     public List<ProductPrice> getAllProductPrices() {
-        int product_id = 1;
         return this.productPriceRepository.retrieveAllProductPrices();
     }
 
