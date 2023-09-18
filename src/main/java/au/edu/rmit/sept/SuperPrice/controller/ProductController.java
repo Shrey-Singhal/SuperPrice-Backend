@@ -3,7 +3,6 @@ package au.edu.rmit.sept.SuperPrice.controller;
 // Local class imports
 import au.edu.rmit.sept.SuperPrice.model.*;
 import au.edu.rmit.sept.SuperPrice.service.*;
-import au.edu.rmit.sept.SuperPrice.controller.ControllerFilters;
 
 // Spring Boot package class imports
 import org.springframework.beans.factory.annotation.Autowired;
