@@ -1,4 +1,4 @@
-package au.edu.rmit.sept.SuperPrice.controllerTests;
+package au.edu.rmit.sept.SuperPrice.serviceTests;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ProductControllerTest {
+class ProductServiceTest {
 
     @BeforeEach
     void setUp() {
@@ -21,11 +21,7 @@ class ProductControllerTest {
     }
 
     @Test
-    void getProductsByCategory() {
-    }
-
-    @Test
-    void getProductsByProductCategory() {
+    void getAllProductsByCategory() {
     }
 
     @Test
@@ -33,15 +29,11 @@ class ProductControllerTest {
     }
 
     @Test
-    void getProductByProductId() {
+    void getProductIdByProductName() {
     }
 
     @Test
-    void getProductByName() {
-    }
-
-    @Test
-    void getProductByProductName() {
+    void addProduct() {
     }
 
     @Test
@@ -53,22 +45,14 @@ class ProductControllerTest {
     }
 
     @Test
-    void getUserByUserEmail() {
-    }
-
-    @Test
     void getAllOrders() {
     }
 
     @Test
-    void getProductPricesByProductId() {
-    }
-
-    @Test
-    void getPricesByProductId() {
-    }
-
-    @Test
     void getAllProductPrices() {
+    }
+
+    @Test
+    void getProductPricesByProductId() {
     }
 }

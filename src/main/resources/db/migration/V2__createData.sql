@@ -6,6 +6,7 @@ INSERT INTO Users (user_name, email, password_hash, user_rewards_points) VALUES
 ('Ethan Martin', 'ethan.martin@gmail.com', 'Password4', 350),
 ('Ava White', 'ava.white@gmail.com', 'Password5', 900);
 
+
 # Populate Supermarkets table
 INSERT INTO Supermarkets (supermarket_name, supermarket_address, latitude, longitude) VALUES
 ('Woolworths', '1 Park St, Sydney, NSW 2000', -33.870843, 151.208295),
@@ -13,6 +14,24 @@ INSERT INTO Supermarkets (supermarket_name, supermarket_address, latitude, longi
 ('Aldi', '85 Mains Rd, Sunnybank, QLD 4109', -27.570539, 153.054489),
 ('IGA', '152-158 St Georges Terrace, Perth, WA 6000', -31.954708, 115.853638),
 ('Foodland', '144 Grote St, Adelaide, SA 5000', -34.927171, 138.598633);
+
+
+# # Populate Product Categories table
+# INSERT INTO ProductCategories (product_category_id, product_category_name, product_category_description) VALUES
+# (1, 'Dairy Products', 'Milks, Cheeses, Yoghurts, and other non-frozen dairy products.'),
+# (2, 'Bakery Products', 'Breads, Pastries, Pizza Bases, and other bakery products.'),
+# (3, 'Meat, Poultry & Eggs', 'Red Meats (Beef, Lamb, Veal, Kangaroo, etc.), White Meats (Pork, Chicken), Seafoods, Eggs.'),
+# (4, 'Fresh Fruit & Vegetables', 'Fresh Fruits, Fresh Vegetables, Fresh Herbs, Fresh Salad Mixes, Fresh Pre-chopped Vegetables.'),
+# (5, 'Grains', 'Grains, Seeds, Rices, Pastas');
+
+# # Populate Products table
+# INSERT INTO Products (product_name, product_category_id) VALUES
+# ('Full Cream Milk', 1),                  # Changed from 'Dairy'
+# ('Wholemeal Bread', 2),
+# ('Free Range Eggs', 3),            # Changed from 'Dairy'
+# ('Granny Smith Apples', 4),    # Changed from 'Produce'
+# ('Basmati Rice', 5);                             # Changed from 'Dry Goods'
+
 
 # Populate Products table
 INSERT INTO Products (product_name, product_category) VALUES
@@ -90,12 +109,12 @@ INSERT INTO Orders (user_id, delivery_address_id, order_status, order_total_pric
 
 
 # Populate Order Products table
-INSERT INTO OrderProducts (order_id, product_id, quantity, product_price) VALUES
-(1, 1, 3, 1.55),
-(2, 2, 2, 2.15),
-(3, 3, 5, 3.90),
-(4, 4, 4, 3.50),
-(5, 5, 3, 2.70);
+INSERT INTO OrderProducts (order_id, product_id, quantity, product_price, product_rewards) VALUES
+(1, 1, 3, 1.55, 15),
+(2, 2, 2, 2.15, 21),
+(3, 3, 5, 3.90, 40),
+(4, 4, 4, 3.50, 35),
+(5, 5, 3, 2.70, 27);
 
 
 # Populate Order History table

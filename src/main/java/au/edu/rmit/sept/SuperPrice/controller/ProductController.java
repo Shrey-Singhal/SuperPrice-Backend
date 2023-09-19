@@ -3,7 +3,6 @@ package au.edu.rmit.sept.SuperPrice.controller;
 // Local class imports
 import au.edu.rmit.sept.SuperPrice.model.*;
 import au.edu.rmit.sept.SuperPrice.service.*;
-import au.edu.rmit.sept.SuperPrice.controller.ControllerFilters;
 
 // Spring Boot package class imports
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,13 +23,16 @@ public class ProductController {
     private ProductService productService;
 
 
-    // Controller methods
+    // CONTROLLER METHODS
 
     // TODO: Test & remove
     @GetMapping("/Test")
     public String test(){
         return "Hello from SuperPrice!";
     }
+
+
+    // PRODUCT CONTROLLER METHODS
 
     // Get all Products
     @GetMapping("/All/Products") // TODO: Update final URLs
@@ -116,6 +118,9 @@ public class ProductController {
         return productOptional.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
+
+    // USER CONTROLLER METHODS
+
     // Get all Users
     @GetMapping("/All/Users") // TODO: Update final URLs
     public ResponseEntity<List<User>> getAllUsers() {
@@ -146,6 +151,15 @@ public class ProductController {
         return userOptional.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
+    // TODO: Get User Rewards Points, given User email -> Remove if not necessary given this can be gotten from above method
+//    @GetMapping("/getUserRewardsByEmail/{email}")
+//    public Long getUserRewards(@PathVariable("email") String email) {
+//        return productService.getUserRewards(email);
+//    }
+
+
+    // ORDER CONTROLLER METHODS
+
     // Get all Orders
     @GetMapping("/All/Orders") // TODO: Update final URLs
     public ResponseEntity<List<Order>> getAllOrders() {
@@ -164,6 +178,8 @@ public class ProductController {
 
     // TODO: Save Order, incl. update User RewardsPoints
 
+
+    // PRODUCT PRICES CONTROLLER METHODS
 
     // Get Product Prices by Product id (from url path variable) // NOTE: For testing purposes only
     @GetMapping("/getProductPricesByProductId/{product_id}")
@@ -197,7 +213,39 @@ public class ProductController {
         }
     }
 
-    // Get all Product Prices // TODO: Remove if not needed
+    // Get Product Prices by Supermarket id (from url path variable) // NOTE: for testing purposes only
+    @GetMapping("/getProductPricesBySupermarketId/{supermarket_id}")
+    public ResponseEntity<List<ProductPrice>> getProductPricesBySupermarketId(@PathVariable int supermarket_id) {
+        // Get list of ProductPrices
+        List<ProductPrice> prices = this.productService.getProductPricesBySupermarketId(supermarket_id);
+
+        // Convert to ResponseEntity
+        if (!prices.isEmpty()) {
+            // OK
+            return ResponseEntity.ok(prices);
+        } else {
+            // No Content
+            return ResponseEntity.noContent().build();
+        }
+    }
+
+    // Get Product Prices by Supermarket id (from request body)
+    @GetMapping("/getPricesBySupermarketId") // TODO: Update final URLs
+    public ResponseEntity<List<ProductPrice>> getPricesBySupermarketId(@RequestBody int supermarket_id) {
+        // Get list of ProductPrices
+        List<ProductPrice> prices = this.productService.getProductPricesBySupermarketId(supermarket_id);
+
+        // Convert to ResponseEntity
+        if (!prices.isEmpty()) {
+            // OK
+            return ResponseEntity.ok(prices);
+        } else {
+            // No Content
+            return ResponseEntity.noContent().build();
+        }
+    }
+
+    // Get all Product Prices // TODO: Remove if not needed (not necessary for the Price Comparison Feature)
     @GetMapping("/getAllProductPrices") // TODO: Update final URLs
     public ResponseEntity<List<ProductPrice>> getAllProductPrices() {
         // Get list of ProductPrices
@@ -212,13 +260,6 @@ public class ProductController {
             return ResponseEntity.noContent().build();
         }
     }
-
-
-    // TODO: Get User Rewards Points, given User email
-//    @GetMapping("/getUserRewardsByEmail/{email}")
-//    public Long getUserRewards(@PathVariable("email") String email) {
-//        return productService.getUserRewards(email);
-//    }
 
 
     // TODO: Add any additional methods required for the Rewards Points Feature implementation

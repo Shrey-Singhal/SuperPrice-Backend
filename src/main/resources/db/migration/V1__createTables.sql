@@ -5,6 +5,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS Users;
 DROP TABLE IF EXISTS Supermarkets;
 DROP TABLE IF EXISTS Products;
+# DROP TABLE IF EXISTS ProductCategories;
 DROP TABLE IF EXISTS ProductPrices;
 DROP TABLE IF EXISTS ProductRewards;
 DROP TABLE IF EXISTS UserAddresses;
@@ -42,12 +43,19 @@ CREATE TABLE Products (
     product_id INT AUTO_INCREMENT PRIMARY KEY,
     product_name VARCHAR(100) NOT NULL,
     product_category VARCHAR(50) NOT NULL
+#     product_category_id INT NOT NULL,
+#     FOREIGN KEY (product_category_id) REFERENCES ProductCategories(product_category_id)
     # ADD ANY ADDITIONAL FIELDS NEEDED
 );
 
 
-# Create Product Categories table
-
+# # Create Product Categories table
+# CREATE TABLE ProductCategories (
+#     product_category_id INT AUTO_INCREMENT PRIMARY KEY,
+#     product_category_name VARCHAR(100) NOT NULL,
+#     product_category_description VARCHAR(100)
+#     # ADD ANY ADDITIONAL FIELDS NEEDED
+# );
 
 
 # Create Product Prices table
@@ -109,9 +117,14 @@ CREATE TABLE OrderProducts (
     order_id INT NOT NULL,
     product_id INT NOT NULL,
     quantity INT NOT NULL,
+#     product_price_id INT NOT NULL,
     product_price DECIMAL(8, 2) NOT NULL,
+#     product_reward_id INT NOT NULL,
+    product_rewards INT NOT NULL,
     FOREIGN KEY (order_id) REFERENCES Orders(order_id),
     FOREIGN KEY (product_id) REFERENCES Products(product_id)
+#     FOREIGN KEY (product_price_id) REFERENCES ProductPrices(product_price_id),
+#     FOREIGN KEY (product_reward_id) REFERENCES ProductRewards(product_reward_id)
     # ADD ANY ADDITIONAL FIELDS NEEDED
 );
 
