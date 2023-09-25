@@ -100,13 +100,13 @@ CREATE TABLE UserAddresses (
 CREATE TABLE Orders (
     order_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
-    delivery_address_id INT NOT NULL,
-    order_status VARCHAR(50),
-    order_total_price DECIMAL(10, 2),
-    order_total_rewards INT,
+#     delivery_address_id INT NOT NULL,
+    order_status VARCHAR(50) DEFAULT 'In Progress',
+    order_total_price DECIMAL(10, 2) DEFAULT 0.00,
+    order_total_rewards INT DEFAULT 0,
     order_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES Users(user_id),
-    FOREIGN KEY (delivery_address_id) REFERENCES UserAddresses(user_address_id)
+    FOREIGN KEY (user_id) REFERENCES Users(user_id)
+#     FOREIGN KEY (delivery_address_id) REFERENCES UserAddresses(user_address_id)
     # ADD ANY ADDITIONAL FIELDS NEEDED
 );
 
@@ -137,11 +137,11 @@ CREATE TABLE UserOrderHistory (
     order_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     order_total_price DECIMAL(10, 2) NOT NULL,
     order_total_rewards INT NOT NULL,
-    delivery_address_id INT NOT NULL,
+#     delivery_address_id INT NOT NULL,
     order_status VARCHAR(50) NOT NULL,
     FOREIGN KEY (user_id) REFERENCES Users(user_id),
-    FOREIGN KEY (order_id) REFERENCES Orders(order_id),
-    FOREIGN KEY (delivery_address_id) REFERENCES UserAddresses(user_address_id)
+    FOREIGN KEY (order_id) REFERENCES Orders(order_id)
+#     FOREIGN KEY (delivery_address_id) REFERENCES UserAddresses(user_address_id)
     # ADD ANY ADDITIONAL FIELDS NEEDED
 );
 

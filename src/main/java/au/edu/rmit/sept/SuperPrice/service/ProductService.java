@@ -33,6 +33,11 @@ public class ProductService {
         return this.productRepository.findAllBy();
     }
 
+    // Get all distinct product categories
+    public List<String> getAllProductCategories() {
+        return this.productRepository.retrieveDistinctProductCategories();
+    }
+
     // Get all Products by category
     public List<Product> getAllProductsByCategory(String product_category) {
         return productRepository.findAllByCategory(product_category);
@@ -78,8 +83,11 @@ public class ProductService {
 
 
     // TODO: Create (add) Order based on shopping cart
-        // TODO: Get User by email
+        // TODO: Get User by email -> Need User id to create new order
         // TODO: Get User address by User id
+    public Order createOrder(Order newOrder) {
+        return this.orderRepository.save(newOrder);
+    }
 
 
     // TODO: Process Order -> Add Order to Order History & Update Users Rewards Points

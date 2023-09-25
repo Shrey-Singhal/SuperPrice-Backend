@@ -15,7 +15,7 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int order_id;
     private int user_id;
-    private int delivery_address_id;
+//    private int delivery_address_id;
     private String order_status;
     private double order_total_price;
     private int order_total_rewards;
@@ -24,10 +24,14 @@ public class Order {
     // Constructors
     public Order() {}
 
-    public Order(int order_id, int user_id, int delivery_address_id, String order_status, double order_total_price, int order_total_rewards, Timestamp order_date) {
+    public Order(int user_id) {
+        this.user_id = user_id;
+    }
+
+    public Order(int order_id, int user_id, String order_status, double order_total_price, int order_total_rewards, Timestamp order_date) {
         this.order_id = order_id;
         this.user_id = user_id;
-        this.delivery_address_id = delivery_address_id;
+//        this.delivery_address_id = delivery_address_id;
         this.order_status = order_status;
         this.order_total_price = order_total_price;
         this.order_total_rewards = order_total_rewards;
@@ -43,9 +47,9 @@ public class Order {
         return this.user_id;
     }
 
-    public int getDeliveryAddressId() {
-        return this.delivery_address_id;
-    }
+//    public int getDeliveryAddressId() {
+//        return this.delivery_address_id;
+//    }
 
     public String getOrderStatus() {
         return this.order_status;
@@ -64,7 +68,7 @@ public class Order {
     }
 
 
-    // Setters TODO: Add setters
+    // Setters
     public void setOrderId(int order_id) {
         this.order_id = order_id;
     }
@@ -73,9 +77,9 @@ public class Order {
         this.user_id = user_id;
     }
 
-    public void setDeliveryAddressId(int delivery_address_id) {
-        this.delivery_address_id = delivery_address_id;
-    }
+//    public void setDeliveryAddressId(int delivery_address_id) {
+//        this.delivery_address_id = delivery_address_id;
+//    }
 
     public void setOrderStatus(String order_status) {
         this.order_status = order_status;

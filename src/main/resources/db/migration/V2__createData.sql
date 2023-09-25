@@ -39,7 +39,22 @@ INSERT INTO Products (product_name, product_category) VALUES
 ('Wholemeal Bread', 'Bakery Products'),
 ('Free Range Eggs', 'Meat, Poultry & Eggs'),            # Changed from 'Dairy'
 ('Granny Smith Apples', 'Fresh Fruit & Vegetables'),    # Changed from 'Produce'
-('Basmati Rice', 'Grains');                             # Changed from 'Dry Goods'
+('Basmati Rice', 'Grains'),                             # Changed from 'Dry Goods'
+('Goats Cheese', 'Dairy Products'),                     # Changed from 'Dairy'
+('Chocolate Cake', 'Bakery Products'),
+('Beef Mince', 'Meat, Poultry & Eggs'),                 # Changed from 'Dairy'
+('Cavendish Bananas', 'Fresh Fruit & Vegetables'),      # Changed from 'Produce'
+('Rolled Oats', 'Grains'),                              # Changed from 'Dry Goods'
+('Sour Cream', 'Dairy Products'),                       # Changed from 'Dairy'
+('English Muffins', 'Bakery Products'),
+('Chicken Thighs', 'Meat, Poultry & Eggs'),             # Changed from 'Dairy'
+('Red Grapes', 'Fresh Fruit & Vegetables'),             # Changed from 'Produce'
+('Quinoa', 'Grains'),                                   # Changed from 'Dry Goods'
+('Greek Yoghurt', 'Dairy Products'),                    # Changed from 'Dairy'
+('Croissant', 'Bakery Products'),
+('Pork Chops', 'Meat, Poultry & Eggs'),                 # Changed from 'Dairy'
+('Pears', 'Fresh Fruit & Vegetables'),                  # Changed from 'Produce'
+('Chia Seeds', 'Grains');                               # Changed from 'Dry Goods'
 
 
 # Populate Product Prices table

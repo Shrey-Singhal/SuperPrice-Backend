@@ -6,6 +6,7 @@ import au.edu.rmit.sept.SuperPrice.service.*;
 
 // Spring Boot package class imports
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -44,6 +45,22 @@ public class ProductController {
         if (!products.isEmpty()) {
             // OK
             return ResponseEntity.ok(products);
+        } else {
+            // No Content
+            return ResponseEntity.noContent().build();
+        }
+    }
+
+    // Get all product categories
+    @PostMapping("/All/Categories") // TODO: Update final URLs
+    public ResponseEntity<List<String>> getAllCategories() {
+        // Get a list of all product categories
+        List<String> categories = this.productService.getAllProductCategories();
+
+        // Convert to Response Entity
+        if (!categories.isEmpty()) {
+            // OK
+            return ResponseEntity.ok(categories);
         } else {
             // No Content
             return ResponseEntity.noContent().build();
@@ -177,6 +194,13 @@ public class ProductController {
     }
 
     // TODO: Save Order, incl. update User RewardsPoints
+    @GetMapping("/NewOrder") // TODO: Update final URLs
+    public ResponseEntity<Order> createNewOrder(@RequestBody int user_id) {
+        Order newOrder = new Order(user_id);
+//        newOrder.setUserId(user_id);
+        Order userOrder = this.productService.createOrder(newOrder);
+        return new ResponseEntity<>(userOrder, HttpStatus.CREATED);
+    }
 
 
     // PRODUCT PRICES CONTROLLER METHODS
