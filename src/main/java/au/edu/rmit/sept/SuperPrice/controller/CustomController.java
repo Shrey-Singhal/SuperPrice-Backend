@@ -19,6 +19,7 @@ public class CustomController {
 
     // CUSTOM CONTROLLER METHODS
 
+    // TODO: Remove test controller method
     @GetMapping("/ComparePricesTest/{product_id}")
     public ResponseEntity<List<CustomDTOProductPrices>> getCustomProductPriceDataTest(@PathVariable("product_id") int product_id) {
         List<CustomDTOProductPrices> customProductPriceData = this.customService.getCustomProductPriceData(product_id);
@@ -48,7 +49,20 @@ public class CustomController {
         }
     }
 
-    // TODO: Add any additional custom controller methods
+    // Get ProductPrice data for Products from supermarket with given supermarket_id
+    @PostMapping("/ViewCategoryProductsBySupermarket")
+    public ResponseEntity<List<CustomDTOProductPrices>> getCustomProductPriceDataBySupermarket(@RequestBody int supermarket_id) {
+        List<CustomDTOProductPrices> customProductPriceData = this.customService.getCustomProductPriceDataBySupermarket(supermarket_id);
+
+        // Convert to ResponseEntity
+        if (!customProductPriceData.isEmpty()) {
+            // OK
+            return ResponseEntity.ok(customProductPriceData);
+        } else {
+            // No Content
+            return ResponseEntity.noContent().build();
+        }
+    }
 
 
 }

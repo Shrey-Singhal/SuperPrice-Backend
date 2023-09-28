@@ -19,6 +19,10 @@ public interface ProductRepository extends PagingAndSortingRepository<Product, L
     // Find all Products
     List<Product> findAllBy();
 
+    // Find all distinct product categories
+    @Query(value = "SELECT DISTINCT product_category FROM Product")
+    List<String> retrieveDistinctProductCategories();
+
     // Find all Products by product_category
     @Query(value = "SELECT p FROM Product p WHERE LOWER(p.product_category) = LOWER(:product_category)")
     List<Product> findAllByCategory(@Param("product_category") String product_category);

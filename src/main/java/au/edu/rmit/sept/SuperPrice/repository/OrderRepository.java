@@ -7,7 +7,10 @@ import java.util.List;
 
 @Repository
 public interface OrderRepository extends JpaRepository<Order, Long> {
-    // TODO: Add methods
+    // Fine all orders in the database
     List<Order> findAllBy();
+
+    //
+
 
 }
