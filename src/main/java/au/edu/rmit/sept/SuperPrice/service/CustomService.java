@@ -16,10 +16,15 @@ public class CustomService {
     // TODO: Add any additional custom repositories
 
 
-    // TODO: Add custom service methods for the running of each custom repository method
+    // Custom service methods for the running of each custom repository method
 
     // Get contents of joined Product, ProductPrices & Supermarkets tables for given product_id
     public List<CustomDTOProductPrices> getCustomProductPriceData(int product_id) {
         return customProductPriceRepository.retrieveCustomProductPriceData(product_id);
+    }
+
+    // Get contents of joined Product, ProductPrices & Supermarkets tables for given supermarket_id
+    public List<CustomDTOProductPrices> getCustomProductPriceDataBySupermarket(int supermarket_id) {
+        return customProductPriceRepository.retrieveCustomProductPriceDataBySupermarket(supermarket_id);
     }
 }
