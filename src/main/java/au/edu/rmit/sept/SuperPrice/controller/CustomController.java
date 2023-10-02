@@ -9,8 +9,17 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
+/**
+ * CustomController class handles requests for custom queries
+ * Base URL: http://localhost:8080/SuperPrice
+ * CrossOrigin: http://localhost:5173
+ * 
+ * TODO: Update final URLs
+ * TODO: Move test controller methods to tests & adapt as needed
+ */
 @RestController
-@RequestMapping("/SuperPrice") // TODO: Update final URLs
+@RequestMapping("/SuperPrice")
 @CrossOrigin(value = "http://localhost:5173")
 public class CustomController {
     // Declare custom service instance
@@ -19,7 +28,7 @@ public class CustomController {
 
     // CUSTOM CONTROLLER METHODS
 
-    // TODO: Remove test controller method
+    // TODO: Test controller method -> Move to tests / adapt
     @GetMapping("/ComparePricesTest/{product_id}")
     public ResponseEntity<List<CustomDTOProductPrices>> getCustomProductPriceDataTest(@PathVariable("product_id") int product_id) {
         List<CustomDTOProductPrices> customProductPriceData = this.customService.getCustomProductPriceData(product_id);
