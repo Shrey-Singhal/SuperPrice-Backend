@@ -1,7 +1,6 @@
 package au.edu.rmit.sept.SuperPrice.model;
 
 import jakarta.persistence.*;
-
 import java.sql.Timestamp;
 
 @Entity
