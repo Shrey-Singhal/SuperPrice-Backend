@@ -10,11 +10,10 @@ public class CustomDTOProductPrices {
     private String supermarket_address;
     private int product_price_id;
     private double product_price;
-    private int rewards_points;
 
     // Constructors
     public CustomDTOProductPrices() {}
-    public CustomDTOProductPrices(int product_id, String product_name, String product_category, int supermarket_id, String supermarket_name, String supermarket_address, int product_price_id, double product_price, int rewards_points) {
+    public CustomDTOProductPrices(int product_id, String product_name, String product_category, int supermarket_id, String supermarket_name, String supermarket_address, int product_price_id, double product_price) {
         this.product_id = product_id;
         this.product_name = product_name;
         this.product_category = product_category;
@@ -23,8 +22,6 @@ public class CustomDTOProductPrices {
         this.supermarket_address = supermarket_address;
         this.product_price_id = product_price_id;
         this.product_price = product_price;
-        this.rewards_points = rewards_points;
-        // this.rewards_points = (int) Math.round(product_price * 0.1);
     }
 
     // Setters & Getters
@@ -90,13 +87,5 @@ public class CustomDTOProductPrices {
 
     public void setProduct_price(double product_price) {
         this.product_price = product_price;
-    }
-
-    public int getRewardsPoints() {
-        return rewards_points;
-    }
-
-    public void setRewards_points(int rewards_points) {
-        this.rewards_points = rewards_points;
     }
 }
