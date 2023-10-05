@@ -24,7 +24,6 @@ public class CustomDTOProductPrices {
         this.supermarket_id = supermarket_id;
         this.supermarket_name = supermarket_name;
         this.supermarket_address = supermarket_address;
-        // this.rewards_points = (int) Math.round(product_price * 0.1);
     }
 
     // Setters & Getters
