@@ -5,12 +5,12 @@ public class CustomDTOProductPrices {
     private int product_id;
     private String product_name;
     private String product_category;
-    private int supermarket_id;
-    private String supermarket_name;
-    private String supermarket_address;
     private int product_price_id;
     private double product_price;
     private int rewards_points;
+    private int supermarket_id;
+    private String supermarket_name;
+    private String supermarket_address;
 
     // Constructors
     public CustomDTOProductPrices() {}
@@ -18,12 +18,12 @@ public class CustomDTOProductPrices {
         this.product_id = product_id;
         this.product_name = product_name;
         this.product_category = product_category;
-        this.supermarket_id = supermarket_id;
-        this.supermarket_name = supermarket_name;
-        this.supermarket_address = supermarket_address;
         this.product_price_id = product_price_id;
         this.product_price = product_price;
         this.rewards_points = rewards_points;
+        this.supermarket_id = supermarket_id;
+        this.supermarket_name = supermarket_name;
+        this.supermarket_address = supermarket_address;
         // this.rewards_points = (int) Math.round(product_price * 0.1);
     }
 
