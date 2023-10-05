@@ -45,7 +45,7 @@ INSERT INTO Products (product_name, product_category) VALUES
 ('Rice Noodles', 'Pantry'),
 ('Olive Oil', 'Pantry'),
 ('Cough Syrup', 'Medicinal'),
-('Vitamins', 'Medicinal'),
+('Multi-Vitamins', 'Medicinal'),
 ('Bleach', 'Cleaning Items'),
 ('All-Purpose Cleaner', 'Cleaning Items'),
 ('Goats Cheese', 'Dairy Products'),
@@ -66,12 +66,28 @@ INSERT INTO Products (product_name, product_category) VALUES
 ('Chicken Nuggets', 'Frozen Foods'),
 ('Frozen Fruits', 'Frozen Foods'),
 ('Lemonade', 'Drinks'),
-('Tea', 'Drinks'),
+('Kombucha', 'Drinks'),
 ('Cereal', 'Pantry'),
 ('Honey', 'Pantry'),
-('Antibiotics', 'Medicinal'),
-('First Aid Kit', 'Medicinal'),
-('Laundry Detergent', 'Cleaning Items');
+('Antiseptic Cream', 'Medicinal'),
+('Hydralyte', 'Medicinal'),
+('Laundry Powder', 'Cleaning Items'),
+('Irish Breakfast Tea', 'Tea & Coffee'),
+('Choc-Chip Cookies', 'Snacks & Confectionary'),
+('Sunscreen (50+)', 'Beauty & Personal Care'),
+('Instant Coffee', 'Tea & Coffee'),
+('Party-Mix', 'Snacks & Confectionary'),
+('Toothpaste', 'Beauty & Personal Care'),
+('Peppermint Tea', 'Tea & Coffee'),
+('Chocolate Hazelnut Block', 'Snacks & Confectionary'),
+('Deodorant', 'Beauty & Personal Care'),
+('Coffee Beans', 'Tea & Coffee'),
+('Potato Chips', 'Snacks & Confectionary'),
+('Moisturizer', 'Beauty & Personal Care'),
+('Ground Coffee', 'Tea & Coffee'),
+('Chewing Gum', 'Snacks & Confectionary'),
+('Shampoo', 'Beauty & Personal Care'),
+('Shaving Cream', 'Beauty & Personal Care');
 
 
 -- Populate ProductPrices table
@@ -105,7 +121,7 @@ INSERT INTO ProductPrices (product_id, supermarket_id, product_price) VALUES
 (25, 1, 1.43),  -- Rice Noodles at Woolworths
 (26, 1, 6.45),  -- Olive Oil at Woolworths
 (27, 1, 3.00),  -- Cough Syrup at Woolworths
-(28, 1, 4.30),  -- Vitamins at Woolworths
+(28, 1, 4.30),  -- Multi-Vitamins at Woolworths
 (29, 1, 1.72),  -- Bleach at Woolworths
 (30, 1, 1.91),  -- All-Purpose Cleaner at Woolworths
 (31, 1, 5.80),  -- Goats Cheese at Woolworths
@@ -126,12 +142,29 @@ INSERT INTO ProductPrices (product_id, supermarket_id, product_price) VALUES
 (46, 1, 3.85),  -- Chicken Nuggets at Woolworths
 (47, 1, 3.30),  -- Frozen Fruits at Woolworths
 (48, 1, 1.35),  -- Lemonade at Woolworths
-(49, 1, 1.15),  -- Tea at Woolworths
+(49, 1, 1.15),  -- Kombucha at Woolworths
 (50, 1, 3.05),  -- Cereal at Woolworths
 (51, 1, 6.90),  -- Honey at Woolworths
-(52, 1, 9.60),  -- Antibiotics at Woolworths
-(53, 1, 16.90), -- First Aid Kit at Woolworths
-(54, 1, 4.50);  -- Laundry Detergent at Woolworths
+(52, 1, 9.60),  -- Antiseptic Cream at Woolworths
+(53, 1, 16.90), -- Hydralyte at Woolworths
+(54, 1, 4.50),  -- Laundry Powder at Woolworths
+(55, 1, 3.80),  -- Irish Breakfast Tea at Woolworths
+(56, 1, 2.55),  -- Choc-Chip Cookies at Woolworths
+(57, 1, 9.15),  -- Sunscreen (50+) at Woolworths
+(58, 1, 5.85),  -- Instant Coffee at Woolworths
+(59, 1, 2.00),  -- Party-Mix at Woolworths
+(60, 1, 2.54),  -- Toothpaste at Woolworths
+(61, 1, 3.30),  -- Peppermint Tea at Woolworths
+(62, 1, 4.80),  -- Chocolate Hazelnut Block at Woolworths
+(63, 1, 2.95),  -- Deodorant at Woolworths
+(64, 1, 6.35),  -- Coffee Beans at Woolworths
+(65, 1, 2.85),  -- Potato Chips at Woolworths
+(66, 1, 7.05),  -- Moisturizer at Woolworths
+(67, 1, 5.50),  -- Ground Coffee at Woolworths
+(68, 1, 1.00),  -- Chewing Gum at Woolworths
+(69, 1, 3.54),  -- Shampoo at Woolworths
+(70, 1, 3.04);  -- Shaving Cream at Woolworths
+
 
 -- Coles prices (similar but not the same as Woolworths)
 INSERT INTO ProductPrices (product_id, supermarket_id, product_price) VALUES
@@ -162,7 +195,7 @@ INSERT INTO ProductPrices (product_id, supermarket_id, product_price) VALUES
 (25, 2, 1.45),  -- Rice Noodles at Coles
 (26, 2, 6.51),  -- Olive Oil at Coles
 (27, 2, 3.03),  -- Cough Syrup at Coles
-(28, 2, 4.35),  -- Vitamins at Coles
+(28, 2, 4.35),  -- Multi-Vitamins at Coles
 (29, 2, 1.74),  -- Bleach at Coles
 (30, 2, 1.93),  -- All-Purpose Cleaner at Coles
 (31, 2, 5.75),  -- Goats Cheese at Coles
@@ -183,12 +216,28 @@ INSERT INTO ProductPrices (product_id, supermarket_id, product_price) VALUES
 (46, 2, 3.90),  -- Chicken Nuggets at Coles
 (47, 2, 3.35),  -- Frozen Fruits at Coles
 (48, 2, 1.30),  -- Lemonade at Coles
-(49, 2, 1.10),  -- Tea at Coles
+(49, 2, 1.10),  -- Kombucha at Coles
 (50, 2, 3.00),  -- Cereal at Coles
 (51, 2, 7.00),  -- Honey at Coles
-(52, 2, 9.75),  -- Antibiotics at Coles
-(53, 2, 17.10), -- First Aid Kit at Coles
-(54, 2, 4.60);  -- Laundry Detergent at Coles
+(52, 2, 9.75),  -- Antiseptic Cream at Coles
+(53, 2, 17.10), -- Hydralyte at Coles
+(54, 2, 4.60),  -- Laundry Powder at Coles
+(55, 1, 3.85),  -- Irish Breakfast Tea at Coles
+(56, 1, 2.60),  -- Choc-Chip Cookies at Coles
+(57, 1, 9.29),  -- Sunscreen (50+) at Coles
+(58, 1, 5.90),  -- Instant Coffee at Coles
+(59, 1, 2.05),  -- Party-Mix at Coles
+(60, 1, 2.59),  -- Toothpaste at Coles
+(61, 1, 3.35),  -- Peppermint Tea at Coles
+(62, 1, 4.89),  -- Chocolate Hazelnut Block at Coles
+(63, 1, 2.99),  -- Deodorant at Coles
+(64, 1, 6.45),  -- Coffee Beans at Coles
+(65, 1, 2.89),  -- Potato Chips at Coles
+(66, 1, 7.15),  -- Moisturizer at Coles
+(67, 1, 5.59),  -- Ground Coffee at Coles
+(68, 1, 1.05),  -- Chewing Gum at Coles
+(69, 1, 3.59),  -- Shampoo at Coles
+(70, 1, 3.09);  -- Shaving Cream at Coles
 
 -- Aldi prices (approximately 10% cheaper than Coles/Woolworths)
 INSERT INTO ProductPrices (product_id, supermarket_id, product_price) VALUES
@@ -219,7 +268,7 @@ INSERT INTO ProductPrices (product_id, supermarket_id, product_price) VALUES
 (25, 3, 1.50),  -- Rice Noodles at Aldi
 (26, 3, 6.75),  -- Olive Oil at Aldi
 (27, 3, 3.15),  -- Cough Syrup at Aldi
-(28, 3, 4.50),  -- Vitamins at Aldi
+(28, 3, 4.50),  -- Multi-Vitamins at Aldi
 (29, 3, 1.80),  -- Bleach at Aldi
 (30, 3, 2.00),  -- All-Purpose Cleaner at Aldi
 (31, 3, 5.70),  -- Goats Cheese at Aldi
@@ -240,12 +289,28 @@ INSERT INTO ProductPrices (product_id, supermarket_id, product_price) VALUES
 (46, 3, 3.75),  -- Chicken Nuggets at Aldi
 (47, 3, 3.20),  -- Frozen Fruits at Aldi
 (48, 3, 1.25),  -- Lemonade at Aldi
-(49, 3, 1.05),  -- Tea at Aldi
+(49, 3, 1.05),  -- Kombucha at Aldi
 (50, 3, 2.90),  -- Cereal at Aldi
 (51, 3, 6.80),  -- Honey at Aldi
-(52, 3, 9.50),  -- Antibiotics at Aldi
-(53, 3, 16.75), -- First Aid Kit at Aldi
-(54, 3, 4.40);  -- Laundry Detergent at Aldi
+(52, 3, 9.50),  -- Antiseptic Cream at Aldi
+(53, 3, 16.75), -- Hydralyte at Aldi
+(54, 3, 4.40),  -- Laundry Powder at Aldi
+(55, 1, 3.75),  -- Irish Breakfast Tea at Aldi
+(56, 1, 2.50),  -- Choc-Chip Cookies at Aldi
+(57, 1, 8.99),  -- Sunscreen (50+) at Aldi
+(58, 1, 5.75),  -- Instant Coffee at Aldi
+(59, 1, 1.99),  -- Party-Mix at Aldi
+(60, 1, 2.49),  -- Toothpaste at Aldi
+(61, 1, 3.25),  -- Peppermint Tea at Aldi
+(62, 1, 4.75),  -- Chocolate Hazelnut Block at Aldi
+(63, 1, 2.89),  -- Deodorant at Aldi
+(64, 1, 6.25),  -- Coffee Beans at Aldi
+(65, 1, 2.80),  -- Potato Chips at Aldi
+(66, 1, 6.99),  -- Moisturizer at Aldi
+(67, 1, 5.45),  -- Ground Coffee at Aldi
+(68, 1, 0.99),  -- Chewing Gum at Aldi
+(69, 1, 3.49),  -- Shampoo at Aldi
+(70, 1, 2.99);  -- Shaving Cream at Aldi
 
 -- IGA prices (between 10% more expensive and 10% cheaper than Coles/Woolworths)
 INSERT INTO ProductPrices (product_id, supermarket_id, product_price) VALUES
@@ -276,7 +341,7 @@ INSERT INTO ProductPrices (product_id, supermarket_id, product_price) VALUES
 (25, 4, 1.65),  -- Rice Noodles at IGA
 (26, 4, 7.42),  -- Olive Oil at IGA
 (27, 4, 3.46),  -- Cough Syrup at IGA
-(28, 4, 4.95),  -- Vitamins at IGA
+(28, 4, 4.95),  -- Multi-Vitamins at IGA
 (29, 4, 1.98),  -- Bleach at IGA
 (30, 4, 2.20),  -- All-Purpose Cleaner at IGA
 (31, 4, 5.72),  -- Goats Cheese at IGA
@@ -297,12 +362,28 @@ INSERT INTO ProductPrices (product_id, supermarket_id, product_price) VALUES
 (46, 4, 3.75),  -- Chicken Nuggets at IGA
 (47, 4, 3.25),  -- Frozen Fruits at IGA
 (48, 4, 1.32),  -- Lemonade at IGA
-(49, 4, 1.12),  -- Tea at IGA
+(49, 4, 1.12),  -- Kombucha at IGA
 (50, 4, 3.10),  -- Cereal at IGA
 (51, 4, 7.20),  -- Honey at IGA
-(52, 4, 9.95),  -- Antibiotics at IGA
-(53, 4, 17.50), -- First Aid Kit at IGA
-(54, 4, 4.55);  -- Laundry Detergent at IGA
+(52, 4, 9.95),  -- Antiseptic Cream at IGA
+(53, 4, 17.50), -- Hydralyte at IGA
+(54, 4, 4.55),  -- Laundry Powder at IGA
+(55, 1, 4.00),  -- Irish Breakfast Tea at IGA
+(56, 1, 2.70),  -- Choc-Chip Cookies at IGA
+(57, 1, 9.50),  -- Sunscreen (50+) at IGA
+(58, 1, 6.10),  -- Instant Coffee at IGA
+(59, 1, 2.10),  -- Party-Mix at IGA
+(60, 1, 2.65),  -- Toothpaste at IGA
+(61, 1, 3.45),  -- Peppermint Tea at IGA
+(62, 1, 5.00),  -- Chocolate Hazelnut Block at IGA
+(63, 1, 3.05),  -- Deodorant at IGA
+(64, 1, 6.60),  -- Coffee Beans at IGA
+(65, 1, 2.95),  -- Potato Chips at IGA
+(66, 1, 7.30),  -- Moisturizer at IGA
+(67, 1, 5.75),  -- Ground Coffee at IGA
+(68, 1, 1.10),  -- Chewing Gum at IGA
+(69, 1, 3.65),  -- Shampoo at IGA
+(70, 1, 3.15);  -- Shaving Cream at IGA
 
 -- Foodworks prices (between 10% more expensive and 10% cheaper than Coles/Woolworths)
 INSERT INTO ProductPrices (product_id, supermarket_id, product_price) VALUES
@@ -333,7 +414,7 @@ INSERT INTO ProductPrices (product_id, supermarket_id, product_price) VALUES
 (25, 5, 1.42),  -- Rice Noodles at Foodworks
 (26, 5, 6.38),  -- Olive Oil at Foodworks
 (27, 5, 2.97),  -- Cough Syrup at Foodworks
-(28, 5, 4.25),  -- Vitamins at Foodworks
+(28, 5, 4.25),  -- Multi-Vitamins at Foodworks
 (29, 5, 1.70),  -- Bleach at Foodworks
 (30, 5, 1.88),  -- All-Purpose Cleaner at Foodworks
 (31, 5, 5.78),  -- Goats Cheese at Foodworks
@@ -354,12 +435,28 @@ INSERT INTO ProductPrices (product_id, supermarket_id, product_price) VALUES
 (46, 5, 3.80),  -- Chicken Nuggets at Foodworks
 (47, 5, 3.27),  -- Frozen Fruits at Foodworks
 (48, 5, 1.38),  -- Lemonade at Foodworks
-(49, 5, 1.18),  -- Tea at Foodworks
+(49, 5, 1.18),  -- Kombucha at Foodworks
 (50, 5, 3.15),  -- Cereal at Foodworks
 (51, 5, 7.10),  -- Honey at Foodworks
-(52, 5, 9.80),  -- Antibiotics at Foodworks
-(53, 5, 17.20), -- First Aid Kit at Foodworks
-(54, 5, 4.60);  -- Laundry Detergent at Foodworks
+(52, 5, 9.80),  -- Antiseptic Cream at Foodworks
+(53, 5, 17.20), -- Hydralyte at Foodworks
+(54, 5, 4.60),  -- Laundry Powder at Foodworks
+(55, 1, 4.00),  -- Irish Breakfast Tea at Foodworks
+(56, 1, 2.45),  -- Choc-Chip Cookies at Foodworks
+(57, 1, 9.05),  -- Sunscreen (50+) at Foodworks
+(58, 1, 5.65),  -- Instant Coffee at Foodworks
+(59, 1, 1.95),  -- Party-Mix at Foodworks
+(60, 1, 2.39),  -- Toothpaste at Foodworks
+(61, 1, 3.19),  -- Peppermint Tea at Foodworks
+(62, 1, 4.65),  -- Chocolate Hazelnut Block at Foodworks
+(63, 1, 2.79),  -- Deodorant at Foodworks
+(64, 1, 6.10),  -- Coffee Beans at Foodworks
+(65, 1, 2.75),  -- Potato Chips at Foodworks
+(66, 1, 6.80),  -- Moisturizer at Foodworks
+(67, 1, 5.35),  -- Ground Coffee at Foodworks
+(68, 1, 0.95),  -- Chewing Gum at Foodworks
+(69, 1, 3.29),  -- Shampoo at Foodworks
+(70, 1, 2.89);  -- Shaving Cream at Foodworks
 
 
 -- Populate Product Rewards table with rewards points for each product at each supermarket
