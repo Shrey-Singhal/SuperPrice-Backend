@@ -17,9 +17,11 @@ public class CustomPriceRepositoryImpl implements CustomProductPriceRepository {
     @Override
     public List<CustomDTOProductPrices> retrieveCustomProductPriceData(int product_id) {
         // Custom query joining Product, ProductPrices, & Supermarkets tables for given product_id
-        String query = "SELECT p.product_id, p.product_name, p.product_category, pp.product_price_id, pp.product_price, s.supermarket_id, s.supermarket_name, s.supermarket_address FROM Product p " +
+        String query = "SELECT p.product_id, p.product_name, p.product_category, pp.product_price_id, pp.product_price, pr.rewards_points, s.supermarket_id, s.supermarket_name, s.supermarket_address " +
+                "FROM Product p " +
                 "INNER JOIN ProductPrice pp ON p.product_id = pp.product_id " +
                 "INNER JOIN Supermarkets s ON pp.supermarket_id = s.supermarket_id " +
+                "INNER JOIN ProductRewards pr ON pp.supermarket_id = pr.supermarket_id AND pp.product_id = pr.product_id " +
                 "WHERE p.product_id = :product_id";
 
         List<Object[]> queryResults = entityManager.createQuery(query).setParameter("product_id", product_id).getResultList();
@@ -32,9 +34,10 @@ public class CustomPriceRepositoryImpl implements CustomProductPriceRepository {
             customDTOProductPrices.setProduct_category((String) result[2]);
             customDTOProductPrices.setProduct_price_id((int) result[3]);
             customDTOProductPrices.setProduct_price((double) result[4]);
-            customDTOProductPrices.setSupermarket_id((int) result[5]);
-            customDTOProductPrices.setSupermarket_name((String) result[6]);
-            customDTOProductPrices.setSupermarket_address((String) result[7]);
+            customDTOProductPrices.setRewards_points((int) result[5]);
+            customDTOProductPrices.setSupermarket_id((int) result[6]);
+            customDTOProductPrices.setSupermarket_name((String) result[7]);
+            customDTOProductPrices.setSupermarket_address((String) result[8]);
             customQueryData.add(customDTOProductPrices);
         }
 
@@ -46,9 +49,11 @@ public class CustomPriceRepositoryImpl implements CustomProductPriceRepository {
     @Override
     public List<CustomDTOProductPrices> retrieveCustomProductPriceDataBySupermarket(int supermarket_id) {
         // Custom query joining Product, ProductPrices, & Supermarkets tables for given supermarket_id
-        String query = "SELECT p.product_id, p.product_name, p.product_category, pp.product_price_id, pp.product_price, s.supermarket_id, s.supermarket_name, s.supermarket_address FROM Product p " +
+        String query = "SELECT p.product_id, p.product_name, p.product_category, pp.product_price_id, pp.product_price, s.supermarket_id, s.supermarket_name, s.supermarket_address " +
+                "FROM Product p " +
                 "INNER JOIN ProductPrice pp ON p.product_id = pp.product_id " +
                 "INNER JOIN Supermarkets s ON pp.supermarket_id = s.supermarket_id " +
+                "INNER JOIN ProductRewards pr ON pp.supermarket_id = pr.supermarket_id AND pp.product_id = pr.product_id " +
                 "WHERE s.supermarket_id = :supermarket_id";
 
         List<Object[]> queryResults = entityManager.createQuery(query).setParameter("supermarket_id", supermarket_id).getResultList();
