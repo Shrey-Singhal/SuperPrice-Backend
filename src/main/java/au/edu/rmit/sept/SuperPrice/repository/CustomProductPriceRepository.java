@@ -15,6 +15,10 @@ public interface CustomProductPriceRepository {
     // Get contents of joined Product, ProductPrices & Supermarkets tables for given supermarket_id
     List<CustomDTOProductPrices> retrieveCustomProductPriceDataBySupermarket(int supermarket_id);
 
-    // TODO: Add any further custom methods
+    // Get distinct product categories for given supermarket_id
+    List<CustomDTOProductPrices> retrieveCustomDistinctProductCategoryDataBySupermarketId(int supermarket_id);
+
+    // Get products, product prices & product rewards for selected category & supermarket_id
+    List<CustomDTOProductPrices> retrieveCustomProductCategoryProductPriceDataBySupermarketId(int supermarket_id, String product_category);
 
 }
