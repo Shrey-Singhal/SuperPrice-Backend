@@ -222,22 +222,22 @@ INSERT INTO ProductPrices (product_id, supermarket_id, product_price) VALUES
 (52, 2, 9.75),  -- Antiseptic Cream at Coles
 (53, 2, 17.10), -- Hydralyte at Coles
 (54, 2, 4.60),  -- Laundry Powder at Coles
-(55, 1, 3.85),  -- Irish Breakfast Tea at Coles
-(56, 1, 2.60),  -- Choc-Chip Cookies at Coles
-(57, 1, 9.29),  -- Sunscreen (50+) at Coles
-(58, 1, 5.90),  -- Instant Coffee at Coles
-(59, 1, 2.05),  -- Party-Mix at Coles
-(60, 1, 2.59),  -- Toothpaste at Coles
-(61, 1, 3.35),  -- Peppermint Tea at Coles
-(62, 1, 4.89),  -- Chocolate Hazelnut Block at Coles
-(63, 1, 2.99),  -- Deodorant at Coles
-(64, 1, 6.45),  -- Coffee Beans at Coles
-(65, 1, 2.89),  -- Potato Chips at Coles
-(66, 1, 7.15),  -- Moisturizer at Coles
-(67, 1, 5.59),  -- Ground Coffee at Coles
-(68, 1, 1.05),  -- Chewing Gum at Coles
-(69, 1, 3.59),  -- Shampoo at Coles
-(70, 1, 3.09);  -- Shaving Cream at Coles
+(55, 2, 3.85),  -- Irish Breakfast Tea at Coles
+(56, 2, 2.60),  -- Choc-Chip Cookies at Coles
+(57, 2, 9.29),  -- Sunscreen (50+) at Coles
+(58, 2, 5.90),  -- Instant Coffee at Coles
+(59, 2, 2.05),  -- Party-Mix at Coles
+(60, 2, 2.59),  -- Toothpaste at Coles
+(61, 2, 3.35),  -- Peppermint Tea at Coles
+(62, 2, 4.89),  -- Chocolate Hazelnut Block at Coles
+(63, 2, 2.99),  -- Deodorant at Coles
+(64, 2, 6.45),  -- Coffee Beans at Coles
+(65, 2, 2.89),  -- Potato Chips at Coles
+(66, 2, 7.15),  -- Moisturizer at Coles
+(67, 2, 5.59),  -- Ground Coffee at Coles
+(68, 2, 1.05),  -- Chewing Gum at Coles
+(69, 2, 3.59),  -- Shampoo at Coles
+(70, 2, 3.09);  -- Shaving Cream at Coles
 
 -- Aldi prices (approximately 10% cheaper than Coles/Woolworths)
 INSERT INTO ProductPrices (product_id, supermarket_id, product_price) VALUES
@@ -295,22 +295,22 @@ INSERT INTO ProductPrices (product_id, supermarket_id, product_price) VALUES
 (52, 3, 9.50),  -- Antiseptic Cream at Aldi
 (53, 3, 16.75), -- Hydralyte at Aldi
 (54, 3, 4.40),  -- Laundry Powder at Aldi
-(55, 1, 3.75),  -- Irish Breakfast Tea at Aldi
-(56, 1, 2.50),  -- Choc-Chip Cookies at Aldi
-(57, 1, 8.99),  -- Sunscreen (50+) at Aldi
-(58, 1, 5.75),  -- Instant Coffee at Aldi
-(59, 1, 1.99),  -- Party-Mix at Aldi
-(60, 1, 2.49),  -- Toothpaste at Aldi
-(61, 1, 3.25),  -- Peppermint Tea at Aldi
-(62, 1, 4.75),  -- Chocolate Hazelnut Block at Aldi
-(63, 1, 2.89),  -- Deodorant at Aldi
-(64, 1, 6.25),  -- Coffee Beans at Aldi
-(65, 1, 2.80),  -- Potato Chips at Aldi
-(66, 1, 6.99),  -- Moisturizer at Aldi
-(67, 1, 5.45),  -- Ground Coffee at Aldi
-(68, 1, 0.99),  -- Chewing Gum at Aldi
-(69, 1, 3.49),  -- Shampoo at Aldi
-(70, 1, 2.99);  -- Shaving Cream at Aldi
+(55, 3, 3.75),  -- Irish Breakfast Tea at Aldi
+(56, 3, 2.50),  -- Choc-Chip Cookies at Aldi
+(57, 3, 8.99),  -- Sunscreen (50+) at Aldi
+(58, 3, 5.75),  -- Instant Coffee at Aldi
+(59, 3, 1.99),  -- Party-Mix at Aldi
+(60, 3, 2.49),  -- Toothpaste at Aldi
+(61, 3, 3.25),  -- Peppermint Tea at Aldi
+(62, 3, 4.75),  -- Chocolate Hazelnut Block at Aldi
+(63, 3, 2.89),  -- Deodorant at Aldi
+(64, 3, 6.25),  -- Coffee Beans at Aldi
+(65, 3, 2.80),  -- Potato Chips at Aldi
+(66, 3, 6.99),  -- Moisturizer at Aldi
+(67, 3, 5.45),  -- Ground Coffee at Aldi
+(68, 3, 0.99),  -- Chewing Gum at Aldi
+(69, 3, 3.49),  -- Shampoo at Aldi
+(70, 3, 2.99);  -- Shaving Cream at Aldi
 
 -- IGA prices (between 10% more expensive and 10% cheaper than Coles/Woolworths)
 INSERT INTO ProductPrices (product_id, supermarket_id, product_price) VALUES
@@ -368,22 +368,22 @@ INSERT INTO ProductPrices (product_id, supermarket_id, product_price) VALUES
 (52, 4, 9.95),  -- Antiseptic Cream at IGA
 (53, 4, 17.50), -- Hydralyte at IGA
 (54, 4, 4.55),  -- Laundry Powder at IGA
-(55, 1, 4.00),  -- Irish Breakfast Tea at IGA
-(56, 1, 2.70),  -- Choc-Chip Cookies at IGA
-(57, 1, 9.50),  -- Sunscreen (50+) at IGA
-(58, 1, 6.10),  -- Instant Coffee at IGA
-(59, 1, 2.10),  -- Party-Mix at IGA
-(60, 1, 2.65),  -- Toothpaste at IGA
-(61, 1, 3.45),  -- Peppermint Tea at IGA
-(62, 1, 5.00),  -- Chocolate Hazelnut Block at IGA
-(63, 1, 3.05),  -- Deodorant at IGA
-(64, 1, 6.60),  -- Coffee Beans at IGA
-(65, 1, 2.95),  -- Potato Chips at IGA
-(66, 1, 7.30),  -- Moisturizer at IGA
-(67, 1, 5.75),  -- Ground Coffee at IGA
-(68, 1, 1.10),  -- Chewing Gum at IGA
-(69, 1, 3.65),  -- Shampoo at IGA
-(70, 1, 3.15);  -- Shaving Cream at IGA
+(55, 4, 4.00),  -- Irish Breakfast Tea at IGA
+(56, 4, 2.70),  -- Choc-Chip Cookies at IGA
+(57, 4, 9.50),  -- Sunscreen (50+) at IGA
+(58, 4, 6.10),  -- Instant Coffee at IGA
+(59, 4, 2.10),  -- Party-Mix at IGA
+(60, 4, 2.65),  -- Toothpaste at IGA
+(61, 4, 3.45),  -- Peppermint Tea at IGA
+(62, 4, 5.00),  -- Chocolate Hazelnut Block at IGA
+(63, 4, 3.05),  -- Deodorant at IGA
+(64, 4, 6.60),  -- Coffee Beans at IGA
+(65, 4, 2.95),  -- Potato Chips at IGA
+(66, 4, 7.30),  -- Moisturizer at IGA
+(67, 4, 5.75),  -- Ground Coffee at IGA
+(68, 4, 1.10),  -- Chewing Gum at IGA
+(69, 4, 3.65),  -- Shampoo at IGA
+(70, 4, 3.15);  -- Shaving Cream at IGA
 
 -- Foodworks prices (between 10% more expensive and 10% cheaper than Coles/Woolworths)
 INSERT INTO ProductPrices (product_id, supermarket_id, product_price) VALUES
@@ -441,22 +441,22 @@ INSERT INTO ProductPrices (product_id, supermarket_id, product_price) VALUES
 (52, 5, 9.80),  -- Antiseptic Cream at Foodworks
 (53, 5, 17.20), -- Hydralyte at Foodworks
 (54, 5, 4.60),  -- Laundry Powder at Foodworks
-(55, 1, 4.00),  -- Irish Breakfast Tea at Foodworks
-(56, 1, 2.45),  -- Choc-Chip Cookies at Foodworks
-(57, 1, 9.05),  -- Sunscreen (50+) at Foodworks
-(58, 1, 5.65),  -- Instant Coffee at Foodworks
-(59, 1, 1.95),  -- Party-Mix at Foodworks
-(60, 1, 2.39),  -- Toothpaste at Foodworks
-(61, 1, 3.19),  -- Peppermint Tea at Foodworks
-(62, 1, 4.65),  -- Chocolate Hazelnut Block at Foodworks
-(63, 1, 2.79),  -- Deodorant at Foodworks
-(64, 1, 6.10),  -- Coffee Beans at Foodworks
-(65, 1, 2.75),  -- Potato Chips at Foodworks
-(66, 1, 6.80),  -- Moisturizer at Foodworks
-(67, 1, 5.35),  -- Ground Coffee at Foodworks
-(68, 1, 0.95),  -- Chewing Gum at Foodworks
-(69, 1, 3.29),  -- Shampoo at Foodworks
-(70, 1, 2.89);  -- Shaving Cream at Foodworks
+(55, 5, 4.00),  -- Irish Breakfast Tea at Foodworks
+(56, 5, 2.45),  -- Choc-Chip Cookies at Foodworks
+(57, 5, 9.05),  -- Sunscreen (50+) at Foodworks
+(58, 5, 5.65),  -- Instant Coffee at Foodworks
+(59, 5, 1.95),  -- Party-Mix at Foodworks
+(60, 5, 2.39),  -- Toothpaste at Foodworks
+(61, 5, 3.19),  -- Peppermint Tea at Foodworks
+(62, 5, 4.65),  -- Chocolate Hazelnut Block at Foodworks
+(63, 5, 2.79),  -- Deodorant at Foodworks
+(64, 5, 6.10),  -- Coffee Beans at Foodworks
+(65, 5, 2.75),  -- Potato Chips at Foodworks
+(66, 5, 6.80),  -- Moisturizer at Foodworks
+(67, 5, 5.35),  -- Ground Coffee at Foodworks
+(68, 5, 0.95),  -- Chewing Gum at Foodworks
+(69, 5, 3.29),  -- Shampoo at Foodworks
+(70, 5, 2.89);  -- Shaving Cream at Foodworks
 
 
 -- Populate Product Rewards table with rewards points for each product at each supermarket
