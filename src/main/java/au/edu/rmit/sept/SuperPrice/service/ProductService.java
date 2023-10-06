@@ -69,12 +69,15 @@ public class ProductService {
         return userRepository.findUserByEmail(email);
     }
 
+    // Create new User
+    public User createUser(String user_name, String email, String password_hash) {
+        User newUser = new User();
+        newUser.setUserName(user_name);
+        newUser.setUserEmail(email);
+        newUser.setUserPassword(password_hash);
 
-    // TODO: Get User address id by User id
-
-
-    // TODO: Create (add) User
-
+        return this.userRepository.save(newUser);
+    }
 
     // Get all Orders
     public List<Order> getAllOrders() {

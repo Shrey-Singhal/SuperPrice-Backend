@@ -28,7 +28,7 @@ public class CustomController {
 
     // CUSTOM CONTROLLER METHODS
 
-    // TODO: Test controller method -> Move to tests / adapt
+    // Get related ProductPrice & Supermarket data for Product with given product_id
     @GetMapping("/ComparePricesTest/{product_id}")
     public ResponseEntity<List<CustomDTOProductPrices>> getCustomProductPriceDataTest(@PathVariable("product_id") int product_id) {
         List<CustomDTOProductPrices> customProductPriceData = this.customService.getCustomProductPriceData(product_id);
@@ -44,20 +44,20 @@ public class CustomController {
     }
 
 
-    // Get related ProductPrice & Supermarket data for Product with given product_id
-    @PostMapping("/ComparePrices")
-    public ResponseEntity<List<CustomDTOProductPrices>> getCustomProductPriceData(@RequestBody int product_id) {
-        List<CustomDTOProductPrices> customProductPriceData = this.customService.getCustomProductPriceData(product_id);
+    // // Get related ProductPrice & Supermarket data for Product with given product_id
+    // @PostMapping("/ComparePrices")
+    // public ResponseEntity<List<CustomDTOProductPrices>> getCustomProductPriceData(@RequestBody int product_id) {
+    //     List<CustomDTOProductPrices> customProductPriceData = this.customService.getCustomProductPriceData(product_id);
 
-        // Convert to ResponseEntity
-        if (!customProductPriceData.isEmpty()) {
-            // OK
-            return ResponseEntity.ok(customProductPriceData);
-        } else {
-            // No Content
-            return ResponseEntity.noContent().build();
-        }
-    }
+    //     // Convert to ResponseEntity
+    //     if (!customProductPriceData.isEmpty()) {
+    //         // OK
+    //         return ResponseEntity.ok(customProductPriceData);
+    //     } else {
+    //         // No Content
+    //         return ResponseEntity.noContent().build();
+    //     }
+    // }
 
 
     // Get ProductPrice data for Products from supermarket with given supermarket_id
