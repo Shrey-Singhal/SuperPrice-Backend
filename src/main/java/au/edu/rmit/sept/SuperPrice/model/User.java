@@ -1,16 +1,16 @@
 package au.edu.rmit.sept.SuperPrice.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+// import jakarta.persistence.Entity;
+// import jakarta.persistence.GeneratedValue;
+// import jakarta.persistence.GenerationType;
+// import jakarta.persistence.Id;
+// import jakarta.persistence.Table;
+// import javax.persistence.*;
 
-@Entity
-@Table(name = "Users") // Specify table name?
+
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    // @Id
+    // @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int user_id;
     private String user_name;
     private String email;
@@ -70,8 +70,4 @@ public class User {
     public void setUserRewardsPoints(int user_rewards_points) {
         this.user_rewards_points = user_rewards_points;
     }
-
-
-    // TODO: Add any additional methods as needed
-
 }

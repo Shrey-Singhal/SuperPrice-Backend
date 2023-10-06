@@ -1,6 +1,5 @@
 package au.edu.rmit.sept.SuperPrice.controller;
 
-
 import au.edu.rmit.sept.SuperPrice.model.CustomDTOProductPrices;
 import au.edu.rmit.sept.SuperPrice.service.CustomService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +18,7 @@ import java.util.List;
  * TODO: Move test controller methods to tests & adapt as needed
  */
 @RestController
-@RequestMapping("/SuperPrice")
+@RequestMapping(value = "/")
 @CrossOrigin(value = "http://localhost:5173")
 public class CustomController {
     // Declare custom service instance
@@ -28,10 +27,25 @@ public class CustomController {
 
     // CUSTOM CONTROLLER METHODS
 
-    // Get related ProductPrice & Supermarket data for Product with given product_id
-    @GetMapping("/ComparePricesTest/{product_id}")
-    public ResponseEntity<List<CustomDTOProductPrices>> getCustomProductPriceDataTest(@PathVariable("product_id") int product_id) {
-        List<CustomDTOProductPrices> customProductPriceData = this.customService.getCustomProductPriceData(product_id);
+    // Get custom ProductPrices data by given product_id (related Products, ProductPrices, ProductRewards & Supermarkets data)
+    @GetMapping("v1/ProductPrices/{product_id}")
+    public ResponseEntity<List<CustomDTOProductPrices>> getProductPricesByProductId(@PathVariable("product_id") int product_id) {
+        List<CustomDTOProductPrices> customProductPriceData = this.customService.getProductPricesByProductId(product_id);
+
+        // Convert to ResponseEntity
+        if (!customProductPriceData.isEmpty()) {
+            // OK
+            return ResponseEntity.ok(customProductPriceData);
+        } else {
+            // No Content
+            return ResponseEntity.noContent().build();
+        }
+    }
+
+    // Get custom ProductPrice data by given supermarket_id (related Products, ProductPrices, ProductRewards & Supermarkets data)
+    @GetMapping("v1/ProductPrices/Supermarket/{supermarket_id}")
+    public ResponseEntity<List<CustomDTOProductPrices>> getProductPricesBySupermarketId(@PathVariable("supermarket_id") int supermarket_id) {
+        List<CustomDTOProductPrices> customProductPriceData = this.customService.getProductPricesBySupermarketId(supermarket_id);
 
         // Convert to ResponseEntity
         if (!customProductPriceData.isEmpty()) {
@@ -44,26 +58,10 @@ public class CustomController {
     }
 
 
-    // // Get related ProductPrice & Supermarket data for Product with given product_id
-    // @PostMapping("/ComparePrices")
-    // public ResponseEntity<List<CustomDTOProductPrices>> getCustomProductPriceData(@RequestBody int product_id) {
-    //     List<CustomDTOProductPrices> customProductPriceData = this.customService.getCustomProductPriceData(product_id);
-
-    //     // Convert to ResponseEntity
-    //     if (!customProductPriceData.isEmpty()) {
-    //         // OK
-    //         return ResponseEntity.ok(customProductPriceData);
-    //     } else {
-    //         // No Content
-    //         return ResponseEntity.noContent().build();
-    //     }
-    // }
-
-
-    // Get ProductPrice data for Products from supermarket with given supermarket_id
-    @PostMapping("/ViewCategoryProductsBySupermarket")
-    public ResponseEntity<List<CustomDTOProductPrices>> getCustomProductPriceDataBySupermarket(@RequestBody int supermarket_id) {
-        List<CustomDTOProductPrices> customProductPriceData = this.customService.getCustomProductPriceDataBySupermarket(supermarket_id);
+    // Get distinct Product categories by given supermarket_id
+    @GetMapping("v1/ProductCategories/Supermarket/{supermarket_id}")
+    public ResponseEntity<List<CustomDTOProductPrices>> getProductCategoriesBySupermarketId(@PathVariable("supermarket_id") int supermarket_id) {
+        List<CustomDTOProductPrices> customProductPriceData = this.customService.getProductCategoriesBySupermarketId(supermarket_id);
 
         // Convert to ResponseEntity
         if (!customProductPriceData.isEmpty()) {
@@ -76,10 +74,10 @@ public class CustomController {
     }
 
 
-    // Get distinct product categories for given supermarket_id
-    @GetMapping("/ViewDistinctProductCategoriesBySupermarket/{supermarket_id}")
-    public ResponseEntity<List<CustomDTOProductPrices>> getCustomDistinctProductCategoryDataBySupermarket(@PathVariable("supermarket_id") int supermarket_id) {
-        List<CustomDTOProductPrices> customProductPriceData = this.customService.getCustomDistinctProductCategoryDataBySupermarket(supermarket_id);
+    // Get custom ProductPrices data by selected supermarket_id & product_category (related Products, ProductPrices, ProductRewards & Supermarkets data)
+    @GetMapping("v1/ProductPrices/Supermarket/{supermarket_id}/Category/{product_category}")
+    public ResponseEntity<List<CustomDTOProductPrices>> getProductPricesBySupermarketIdAndProductCategory(@PathVariable("supermarket_id") Long supermarket_id, @PathVariable("product_category") String product_category) {
+        List<CustomDTOProductPrices> customProductPriceData = this.customService.getProductPricesBySupermarketIdAndProductCategory(supermarket_id, product_category);
 
         // Convert to ResponseEntity
         if (!customProductPriceData.isEmpty()) {
@@ -92,20 +90,40 @@ public class CustomController {
     }
 
 
-    // Get products, product prices & product rewards for selected category & supermarket_id
-    @GetMapping("/ViewCategoryProductsBySupermarketAndCategory/{supermarket_id}/{product_category}")
-    public ResponseEntity<List<CustomDTOProductPrices>> getCustomProductCategoryProductPriceDataBySupermarket(@PathVariable("supermarket_id") int supermarket_id, @PathVariable("product_category") String product_category) {
-        List<CustomDTOProductPrices> customProductPriceData = this.customService.getCustomProductCategoryProductPriceDataBySupermarket(supermarket_id, product_category);
+    // TODO: Test this method & related service & repository methods
+    // Get custom ProductPrices data by selected inputs or display all if none selected (related Products, ProductPrices, ProductRewards & Supermarkets data)
+    @GetMapping
+    public ResponseEntity<List<CustomDTOProductPrices>> getProductsBySupermarketIdAndProductCategory(@RequestParam(required = false) Long supermarket_id, @RequestParam(required = false) String product_category) {
+        if (supermarket_id == null && product_category == null) {
+            // Get all ProductPrices for default supermarket (supermarket_id = 1)
+            int supermarketId = 1;
+            List<CustomDTOProductPrices> customProductPriceData = this.customService.getProductPricesBySupermarketId(supermarketId);
 
-        // Convert to ResponseEntity
-        if (!customProductPriceData.isEmpty()) {
-            // OK
-            return ResponseEntity.ok(customProductPriceData);
+            // Convert to ResponseEntity
+            if (!customProductPriceData.isEmpty()) {
+                // OK
+                return ResponseEntity.ok(customProductPriceData);
+            } else {
+                // No Content
+                return ResponseEntity.noContent().build();
+            }
         } else {
-            // No Content
-            return ResponseEntity.noContent().build();
+            // Get all ProductPrices in selected category & supermarket
+            List<CustomDTOProductPrices> customProductPriceData = this.customService.getProductPricesBySupermarketIdAndProductCategory(supermarket_id, product_category);
+
+            // Convert to ResponseEntity
+            if (!customProductPriceData.isEmpty()) {
+                // OK
+                return ResponseEntity.ok(customProductPriceData);
+            } else {
+                // No Content
+                return ResponseEntity.noContent().build();
+            }
         }
     }
+
+
+    // TODO: Add any additional custom controller methods here:
 
 
 }

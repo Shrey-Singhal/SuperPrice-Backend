@@ -18,15 +18,6 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
 
-    @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
-    private OrderRepository orderRepository;
-
-    @Autowired
-    private ProductPriceRepository productPriceRepository;
-
 
     // Get all Products
     public List<Product> getAllProducts() {
@@ -40,79 +31,28 @@ public class ProductService {
 
     // Get all Products by category
     public List<Product> getAllProductsByCategory(String product_category) {
-        return productRepository.findAllByCategory(product_category);
+        return this.productRepository.findAllByCategory(product_category);
     }
 
     // Get Product by id
     public Optional<Product> getProductById(Long productId) {
-        return productRepository.findById(productId);
+        return this.productRepository.findById(productId);
     }
 
     // Get Product id by Name
     public Long getProductIdByProductName(String product_name) {
-        return productRepository.retrieveProductIdByProductName(product_name);
+        return this.productRepository.retrieveProductIdByProductName(product_name);
     }
 
     // TODO: Add a new Product to the database
     public Product addProduct(Product product) {
         // Add Product to the database
-        return productRepository.save(product);
-    }
-
-    // Get all Users
-    public List<User> getAllUsers() {
-        return this.userRepository.findAllBy();
-    }
-
-    // Get User by Email
-    public Optional<User> getUserByEmail(String email) {
-        return userRepository.findUserByEmail(email);
-    }
-
-    // Create new User
-    public User createUser(String user_name, String email, String password_hash) {
-        User newUser = new User();
-        newUser.setUserName(user_name);
-        newUser.setUserEmail(email);
-        newUser.setUserPassword(password_hash);
-
-        return this.userRepository.save(newUser);
-    }
-
-    // Get all Orders
-    public List<Order> getAllOrders() {
-        return this.orderRepository.findAllBy();
+        return this.productRepository.save(product);
     }
 
 
-    // TODO: Create (add) Order based on shopping cart
-        // TODO: Get User by email -> Need User id to create new order
-        // TODO: Get User address by User id
-    public Order createOrder(Order newOrder) {
-        return this.orderRepository.save(newOrder);
-    }
 
 
     // TODO: Process Order -> Add Order to Order History & Update Users Rewards Points
-
-
-    // Get all ProductPrice/s
-    public List<ProductPrice> getAllProductPrices() {
-        return this.productPriceRepository.retrieveAllProductPrices();
-    }
-
-    // Get Product Prices by Product id
-    public List<ProductPrice> getProductPricesByProductId(int product_id) {
-        return this.productPriceRepository.retrieveProductPriceByProductId(product_id);
-    }
-
-    // Get Product Prices by Supermarket id
-    public List<ProductPrice> getProductPricesBySupermarketId(int supermarket_id) {
-        return this.productPriceRepository.retrieveProductPriceBySupermarketId(supermarket_id);
-    }
-
-
-
-
 
 }
