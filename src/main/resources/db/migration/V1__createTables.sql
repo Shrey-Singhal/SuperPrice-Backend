@@ -8,10 +8,10 @@ DROP TABLE IF EXISTS Products;
 -- DROP TABLE IF EXISTS ProductCategories;
 DROP TABLE IF EXISTS ProductPrices;
 DROP TABLE IF EXISTS ProductRewards;
-DROP TABLE IF EXISTS UserAddresses;
+-- DROP TABLE IF EXISTS UserAddresses;
 DROP TABLE IF EXISTS Orders;
 DROP TABLE IF EXISTS OrderProducts;
-DROP TABLE IF EXISTS UserOrderHistory;
+DROP TABLE IF EXISTS OrderHistory;
 -- DROP TABLE IF EXISTS UserRewardsPoints;
 -- DROP TABLE IF EXISTS RewardsLevels;
 
@@ -83,16 +83,16 @@ CREATE TABLE ProductRewards (
 );
 
 
--- Create User Addresses table
-CREATE TABLE UserAddresses (
-    user_address_id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL,
-    address VARCHAR(200) NOT NULL,
---     latitude DECIMAL(10, 6) NOT NULL,
---     longitude DECIMAL(10, 6) NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES Users(user_id)
-    -- ADD ANY ADDITIONAL FIELDS NEEDED
-);
+-- -- Create User Addresses table
+-- CREATE TABLE UserAddresses (
+--     user_address_id INT AUTO_INCREMENT PRIMARY KEY,
+--     user_id INT NOT NULL,
+--     address VARCHAR(200) NOT NULL,
+-- --     latitude DECIMAL(10, 6) NOT NULL,
+-- --     longitude DECIMAL(10, 6) NOT NULL,
+--     FOREIGN KEY (user_id) REFERENCES Users(user_id)
+--     -- ADD ANY ADDITIONAL FIELDS NEEDED
+-- );
 
 
 -- Create Orders table
@@ -129,7 +129,7 @@ CREATE TABLE OrderProducts (
 
 
 -- Create Order History table
-CREATE TABLE UserOrderHistory (
+CREATE TABLE OrderHistory (
     order_history_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
     order_id INT NOT NULL,
