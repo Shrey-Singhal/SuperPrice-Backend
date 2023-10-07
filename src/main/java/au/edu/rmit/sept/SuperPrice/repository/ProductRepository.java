@@ -20,7 +20,7 @@ public interface ProductRepository {
     List<Product> findProductsByCategory(String product_category);
 
     // Find Product by product_id
-    Optional<Product> findProductById(Long product_id);
+    Optional<Product> findProductById(int product_id);
 
     // Find Product by product_name
     Optional<Product> findProductByProductName(String product_name);

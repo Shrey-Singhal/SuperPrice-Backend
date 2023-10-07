@@ -10,6 +10,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import au.edu.rmit.sept.SuperPrice.SuperPriceApp;
 import au.edu.rmit.sept.SuperPrice.model.CustomDTOProductPrices;
+import au.edu.rmit.sept.SuperPrice.service.CustomProductPriceService;
 
 import java.util.Optional;
 
@@ -18,6 +19,8 @@ import org.flywaydb.core.Flyway;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -39,10 +42,16 @@ public class CustomProductPriceControllerIntegrationTest {
         flyway.migrate();
     }
 
-    @AfterEach
-    public void tearDown() {
-        flyway.clean();
-    }
+    // @AfterEach
+    // public void tearDown() {
+    //     flyway.clean();
+    // }
+
+    @Mock
+    private CustomProductPriceService customProductPriceService;
+
+    @InjectMocks
+    private CustomProductPriceController customProductPriceController;
 
     @Test
     public void get_ProductPrices_product_id_1() throws Exception {
@@ -57,7 +66,7 @@ public class CustomProductPriceControllerIntegrationTest {
         productPrices.setSupermarket_address("1 Park St, Sydney, NSW 2000");
         productPrices.setRewards_points(0);
         
-        mvc.perform(get("/v2/ProductPrices/1")
+        mvc.perform(get("/SuperPrice/v2/ProductPrices/1")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
@@ -71,6 +80,9 @@ public class CustomProductPriceControllerIntegrationTest {
                 .andExpect(jsonPath("$[0].supermarket_address", is(productPrices.getSupermarket_address())))
                 .andExpect(jsonPath("$[0].rewards_points", is(productPrices.getRewards_points())));
     }
+
+
+
 
 
 

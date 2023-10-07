@@ -51,7 +51,7 @@ public class OrderController {
 
 
     // Create new Order TODO: Test this method
-    @GetMapping("/createOrder")
+    @PostMapping("/Orders/create")
     public ResponseEntity<Order> createNewOrder(@RequestParam int user_id) {
         Order newOrder = new Order(user_id);
         Optional<Order> userOrder = this.orderService.createOrder(newOrder);
@@ -60,7 +60,7 @@ public class OrderController {
 
 
     // Update Order TODO: Test this method
-    @PutMapping("/updateOrder")
+    @PutMapping("/Orders/update")
     public ResponseEntity<Order> updateOrder(@RequestBody Order order) {
         Optional<Order> orderOptional = this.orderService.updateOrder(order);
         return orderOptional.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());

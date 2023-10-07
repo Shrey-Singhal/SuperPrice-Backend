@@ -104,14 +104,14 @@ public class ProductRepositoryImpl implements ProductRepository {
 
     // Find Product by product_id
     @Override
-    public Optional<Product> findProductById(Long product_id) {
+    public Optional<Product> findProductById(int product_id) {
         String query = "SELECT * FROM Products WHERE product_id = ?";
 
         Optional<Product> productOptional = Optional.empty();
 
         try (Connection connection = dataSource.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setLong(1, product_id);
+            preparedStatement.setInt(1, product_id);
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
