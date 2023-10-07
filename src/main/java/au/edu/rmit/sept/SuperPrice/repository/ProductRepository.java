@@ -1,28 +1,30 @@
 package au.edu.rmit.sept.SuperPrice.repository;
 
 import au.edu.rmit.sept.SuperPrice.model.Product;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-
-// import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
+/**
+ * ProductRepository class handles the retrieval of Product data from the database
+ */
 @Repository
-public interface ProductRepository extends JpaRepository<Product, Long> {
+public interface ProductRepository {
     // Find all Products
-    List<Product> findAllBy();
+    List<Product> findAllProducts();
 
     // Find all distinct product categories
-    @Query(value = "SELECT DISTINCT product_category FROM Product")
-    List<String> retrieveDistinctProductCategories();
+    List<String> findProductCategories();
 
     // Find all Products by product_category
-    @Query(value = "SELECT p FROM Product p WHERE LOWER(p.product_category) = LOWER(:product_category)")
-    List<Product> findAllByCategory(@Param("product_category") String product_category);
+    List<Product> findProductsByCategory(String product_category);
 
-    // Find Products by product_name
-    @Query(value = "SELECT p.product_id FROM Product p WHERE LOWER(p.product_name) = LOWER(:product_name)")
-    Long retrieveProductIdByProductName(@Param("product_name") String product_name);
+    // Find Product by product_id
+    Optional<Product> findProductById(Long product_id);
+
+    // Find Product by product_name
+    Optional<Product> findProductByProductName(String product_name);
+
+    // Save new Product
+    Optional<Product> saveProduct(Product product);
 }

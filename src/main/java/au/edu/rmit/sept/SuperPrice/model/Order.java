@@ -1,18 +1,9 @@
 package au.edu.rmit.sept.SuperPrice.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
 import java.sql.Timestamp;
 
-@Entity
-@Table(name = "Orders") // Specify table name?
 public class Order {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    // Order attributes
     private int order_id;
     private int user_id;
 //    private int delivery_address_id;
@@ -38,6 +29,7 @@ public class Order {
         this.order_date = order_date;
     }
 
+    
     // Getters
     public int getOrderId() {
         return this.order_id;

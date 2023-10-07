@@ -505,22 +505,22 @@ INSERT INTO Orders (user_id, order_status, order_total_price, order_total_reward
 (5, 'Shipped', 55.70, 56, '2023-09-04 16:45:00');
 
 
--- Populate Order Products table
-INSERT INTO OrderProducts (order_id, product_id, quantity, product_price, product_rewards) VALUES
-(1, 1, 3, 1.55, 15),
-(2, 2, 2, 2.15, 21),
-(3, 3, 5, 3.90, 40),
-(4, 4, 4, 3.50, 35),
-(5, 5, 3, 2.70, 27);
+-- -- Populate Order Products table
+-- INSERT INTO OrderProducts (order_id, product_id, quantity, product_price, product_rewards) VALUES
+-- (1, 1, 3, 1.55, 15),
+-- (2, 2, 2, 2.15, 21),
+-- (3, 3, 5, 3.90, 40),
+-- (4, 4, 4, 3.50, 35),
+-- (5, 5, 3, 2.70, 27);
 
 
--- Populate Order History table
-INSERT INTO UserOrderHistory (user_id, order_id, order_total_price, order_total_rewards, order_status, order_date) VALUES
-(1, 1, 50.25, 1, 50, 'Delivered', '2023-09-04 10:30:00'),
-(2, 2, 30.40, 2, 30, 'Pending', '2023-09-04 11:15:00'),
-(3, 3, 45.60, 3, 46, 'Delivered', '2023-09-04 12:00:00'),
-(4, 4, 25.00, 4, 25, 'Pending', '2023-09-04 14:20:00'),
-(5, 5, 55.70, 5, 56, 'Shipped', '2023-09-04 16:45:00');
+-- -- Populate Order History table
+-- INSERT INTO OrderHistory (user_id, order_id, order_total_price, order_total_rewards, order_status, order_date) VALUES
+-- (1, 1, 50.25, 1, 50, 'Delivered', '2023-09-04 10:30:00'),
+-- (2, 2, 30.40, 2, 30, 'Pending', '2023-09-04 11:15:00'),
+-- (3, 3, 45.60, 3, 46, 'Delivered', '2023-09-04 12:00:00'),
+-- (4, 4, 25.00, 4, 25, 'Pending', '2023-09-04 14:20:00'),
+-- (5, 5, 55.70, 5, 56, 'Shipped', '2023-09-04 16:45:00');
 
 
 -- -- Populate User Rewards Points table

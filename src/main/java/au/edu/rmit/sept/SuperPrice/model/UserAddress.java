@@ -1,16 +1,6 @@
 package au.edu.rmit.sept.SuperPrice.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
-@Entity
-@Table(name = "UserAddresses") // Specify table name
-public class Address {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+public class UserAddress {
     private int user_address_id;
     private int user_id;
     private String address;
@@ -18,13 +8,14 @@ public class Address {
 //    private double longitude;
 
     // Constructors
-    public Address() {}
+    public UserAddress() {}
 
-    public Address(int user_address_id, int user_id, String address) {
+    public UserAddress(int user_address_id, int user_id, String address) {
         this.user_address_id = user_address_id;
         this.user_id = user_id;
         this.address = address;
     }
+
 
     // Getters
     public int getUserAddressId() {
