@@ -3,12 +3,9 @@ package au.edu.rmit.sept.SuperPrice.service;
 import au.edu.rmit.sept.SuperPrice.model.Product;
 import au.edu.rmit.sept.SuperPrice.repository.ProductRepositoryImpl;
 
-// Spring Boot package class imports
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
-// Java package class imports
-//import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
