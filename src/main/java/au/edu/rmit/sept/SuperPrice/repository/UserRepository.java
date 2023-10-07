@@ -1,18 +1,26 @@
 package au.edu.rmit.sept.SuperPrice.repository;
 
 import  au.edu.rmit.sept.SuperPrice.model.User;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * UserRepository interface handles database operations related to the User table
+ */
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
-    // User Repository methods (Table queries)
+public interface UserRepository {
+    // User Repository methods
 
-    // Get all Users
-    List<User> findAllBy();
+    // Find all Users
+    List<User> findAllUsers();
 
-    // Get User by email
+    // Find User by email
     Optional<User> findUserByEmail(String email);
+
+    // Save new User
+    Optional<User> saveUser(User user);
+
+    // Update User
+    Optional<User> updateUser(User user);
 }

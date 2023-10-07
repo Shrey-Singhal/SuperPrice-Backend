@@ -1,5 +1,5 @@
-# Set trigger to update total price and total rewards values for orders
-# when products are added to order products prices and rewards values
+-- Set trigger to update total price and total rewards values for orders
+-- when products are added to order products prices and rewards values
 DELIMITER //
 
 CREATE TRIGGER update_order_totals

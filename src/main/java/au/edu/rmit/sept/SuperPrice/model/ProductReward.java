@@ -2,29 +2,29 @@ package au.edu.rmit.sept.SuperPrice.model;
 
 import java.sql.Timestamp;
 
-public class ProductPrice {
-    // ProductPrice attributes
-    private int product_price_id;
+public class ProductReward {
+    // ProductReward attributes
+    private int product_reward_id;
     private int product_id;
     private int supermarket_id;
-    private double product_price;
+    private int rewards_points;
     private Timestamp last_updated;
 
     // Constructors
-    public ProductPrice() {}
+    public ProductReward() {}
 
-    public ProductPrice(int product_price_id, int product_id, int supermarket_id, double product_price, Timestamp last_updated) {
-        this.product_price_id = product_price_id;
+    public ProductReward(int product_reward_id, int product_id, int supermarket_id, int rewards_points, Timestamp last_updated) {
+        this.product_reward_id = product_reward_id;
         this.product_id = product_id;
         this.supermarket_id = supermarket_id;
-        this.product_price = product_price;
+        this.rewards_points = rewards_points;
         this.last_updated = last_updated;
     }
 
 
     // Getters
-    public int getProductPriceId() {
-        return this.product_price_id;
+    public int getProductRewardId() {
+        return this.product_reward_id;
     }
 
     public int getProductId() {
@@ -35,8 +35,8 @@ public class ProductPrice {
         return this.supermarket_id;
     }
 
-    public double getProductPrice() {
-        return this.product_price;
+    public int getRewardsPoints() {
+        return this.rewards_points;
     }
 
     public Timestamp getLastUpdated() {
@@ -45,8 +45,8 @@ public class ProductPrice {
 
 
     // Setters
-    public void setProductPriceId(int product_price_id) {
-        this.product_price_id = product_price_id;
+    public void setProductRewardId(int product_reward_id) {
+        this.product_reward_id = product_reward_id;
     }
 
     public void setProductId(int product_id) {
@@ -57,8 +57,8 @@ public class ProductPrice {
         this.supermarket_id = supermarket_id;
     }
 
-    public void setProductPrice(double product_price) {
-        this.product_price = product_price;
+    public void setRewardsPoints(int rewards_points) {
+        this.rewards_points = rewards_points;
     }
 
     public void setLastUpdated(Timestamp last_updated) {
