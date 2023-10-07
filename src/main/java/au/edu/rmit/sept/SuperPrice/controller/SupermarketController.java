@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(value = "/")
+@RequestMapping(value = "/SuperPrice/")
 @CrossOrigin(value = "http://localhost:5173")
 public class SupermarketController {
     @Autowired

@@ -16,7 +16,7 @@ import au.edu.rmit.sept.SuperPrice.model.User;
  * CrossOrigin: http://localhost:5173
  */
 @RestController
-@RequestMapping(value = "/")
+@RequestMapping(value = "/SuperPrice/")
 @CrossOrigin(value = "http://localhost:5173")
 public class UserController {
     // User controller methods for the running of User service methods

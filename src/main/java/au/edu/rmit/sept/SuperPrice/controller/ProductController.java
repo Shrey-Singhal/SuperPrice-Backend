@@ -19,7 +19,7 @@ import java.util.Optional;
  */
 
 @RestController
-@RequestMapping(value = "/")
+@RequestMapping(value = "/SuperPrice/v1")
 @CrossOrigin(value = "http://localhost:5173")
 public class ProductController {
     // Declare service instance/s
@@ -29,7 +29,7 @@ public class ProductController {
     // PRODUCT CONTROLLER METHODS
 
     // Get all Products
-    @GetMapping("v1/Products")
+    @GetMapping("/Products")
     public ResponseEntity<List<Product>> getProducts() {
         // Get a list of Products
         List<Product> products = this.productService.getAllProducts();
@@ -46,7 +46,7 @@ public class ProductController {
 
 
     // Get all Product categories
-    @GetMapping("v1/Products/Categories")
+    @GetMapping("/Products/Categories")
     public ResponseEntity<List<String>> getProductCategories() {
         // Get a list of all product categories
         List<String> categories = this.productService.getAllProductCategories();
@@ -63,7 +63,7 @@ public class ProductController {
 
 
     // Get Product by product_id
-    @GetMapping("v1/Product/{product_id}")
+    @GetMapping("/Product/{product_id}")
     public ResponseEntity<Product> getProductById(@PathVariable Long product_id) {
         Optional<Product> productOptional = this.productService.getProductById(product_id);
         return productOptional.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
@@ -72,7 +72,7 @@ public class ProductController {
 
 
     // Get Product by product_name
-    @GetMapping("v1/Product/Name/{product_name}")
+    @GetMapping("/Product/Name/{product_name}")
     public ResponseEntity<Product> getProductByName(@PathVariable("product_name") String product_name) {
         Optional<Product> productOptional = this.productService.getProductByProductName(product_name);
         return productOptional.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
@@ -80,7 +80,7 @@ public class ProductController {
 
 
     // Get all Products by product_category
-    @GetMapping("v1/Products/Category/{product_category}")
+    @GetMapping("/Products/Category/{product_category}")
     public ResponseEntity<List<Product>> getProductsByCategory(@PathVariable("product_category") String product_category) {
         // Get a list of Products by category
         List<Product> products = this.productService.getAllProductsByCategory(product_category);

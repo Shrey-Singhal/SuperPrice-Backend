@@ -16,7 +16,7 @@ import au.edu.rmit.sept.SuperPrice.model.ProductReward;
  * CrossOrigin: http://localhost:5173
  */
 @RestController
-@RequestMapping(value = "/")
+@RequestMapping(value = "/SuperPrice/")
 @CrossOrigin(value = "http://localhost:5173")
 public class ProductRewardsController {
     // ProductReward controller methods for the running of ProductReward service methods

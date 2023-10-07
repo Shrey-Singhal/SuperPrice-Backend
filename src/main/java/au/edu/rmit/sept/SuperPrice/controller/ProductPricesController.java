@@ -11,7 +11,7 @@ import au.edu.rmit.sept.SuperPrice.service.ProductPriceService;
 
 
 @RestController
-@RequestMapping(value = "/v1/ProductPrices")
+@RequestMapping(value = "/SuperPrice/v1/ProductPrices")
 @CrossOrigin(value = "http://localhost:5173")
 public class ProductPricesController {
     // Declare service instance/s
