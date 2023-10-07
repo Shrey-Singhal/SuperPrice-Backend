@@ -1,20 +1,19 @@
 package au.edu.rmit.sept.SuperPrice.repository;
 
-import au.edu.rmit.sept.SuperPrice.model.User;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.stereotype.Repository;
-import javax.sql.DataSource;
-// import javax.xml.crypto.Data;
+import au.edu.rmit.sept.SuperPrice.model.User;
 
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Optional;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import javax.sql.DataSource;
+
 
 /**
  * UserRepositoryImpl class handles database operations related to the User table

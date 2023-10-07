@@ -49,6 +49,7 @@ public class ProductPriceRepositoryImpl implements ProductPriceRepository {
                 ProductPrice productPrice = new ProductPrice(product_price_id, product_id, supermarket_id, product_price, last_updated);
                 productPrices.add(productPrice);
             }
+        
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -77,6 +78,7 @@ public class ProductPriceRepositoryImpl implements ProductPriceRepository {
                 ProductPrice productPrice = new ProductPrice(product_price_id, product_id, supermarket_id, product_price, last_updated);
                 productPrices.add(productPrice);
             }
+        
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -105,6 +107,7 @@ public class ProductPriceRepositoryImpl implements ProductPriceRepository {
                 ProductPrice productPrice = new ProductPrice(product_price_id, product_id, supermarket_id, product_price, last_updated);
                 productPrices.add(productPrice);
             }
+        
         } catch (SQLException e) {
             e.printStackTrace();
         }

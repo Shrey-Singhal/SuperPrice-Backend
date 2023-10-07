@@ -1,16 +1,7 @@
 package au.edu.rmit.sept.SuperPrice.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
-@Entity
-@Table(name = "Products") // Specify table name
 public class Product {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    // Product attributes
     private int product_id;
     private String product_name;
     private String product_category;
@@ -23,6 +14,7 @@ public class Product {
         this.product_name = product_name;
         this.product_category = product_category;
     }
+
 
     // Getters
     public int getProductId() {

@@ -77,6 +77,7 @@ CREATE TABLE ProductRewards (
     product_id INT NOT NULL,
     supermarket_id INT NOT NULL,
     rewards_points INT NOT NULL,
+    last_updated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (product_id) REFERENCES Products(product_id),
     FOREIGN KEY (supermarket_id) REFERENCES Supermarkets(supermarket_id)
     -- ADD ANY ADDITIONAL FIELDS NEEDED
