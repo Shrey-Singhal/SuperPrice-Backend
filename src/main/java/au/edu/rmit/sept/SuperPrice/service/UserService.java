@@ -17,7 +17,7 @@ public class UserService {
 
     // Get all Users
     public List<User> getAllUsers() {
-        return this.userRepositoryImpl.findAll();
+        return this.userRepositoryImpl.findAllUsers();
     }
 
 
@@ -39,7 +39,8 @@ public class UserService {
     }
 
 
-    // TODO: Update User rewards points
-
-
+    // Update User TODO: Test this method
+    public Optional<User> updateUser(User user) {
+        return this.userRepositoryImpl.updateUser(user);
+    }
 }

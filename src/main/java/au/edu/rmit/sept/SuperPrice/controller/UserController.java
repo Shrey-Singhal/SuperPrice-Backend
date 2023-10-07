@@ -57,6 +57,10 @@ public class UserController {
     }
 
 
-    // TODO: Update User rewards points
-    
+    // Update User TODO: Test this method
+    @PutMapping("v1/updateUser")
+    public ResponseEntity<User> updateUser(@RequestBody User user) {
+        Optional<User> userOptional = this.userService.updateUser(user);
+        return userOptional.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
 }

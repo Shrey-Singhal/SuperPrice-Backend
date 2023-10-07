@@ -16,6 +16,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * UserRepositoryImpl class handles database operations related to the User table
+ */
 @Repository
 public class UserRepositoryImpl implements UserRepository {
     // Implements User Repository methods
@@ -30,7 +33,7 @@ public class UserRepositoryImpl implements UserRepository {
 
     // Get all Users
     @Override
-    public List<User> findAll() {
+    public List<User> findAllUsers() {
         String query = "SELECT * FROM Users";
 
         List<User> users = new ArrayList<>();
@@ -102,6 +105,31 @@ public class UserRepositoryImpl implements UserRepository {
 
             userOptional = findUserByEmail(user.getUserEmail());
         
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return userOptional;
+    }
+
+
+    // Update User TODO: Test this method
+    @Override
+    public Optional<User> updateUser(User user) {
+        String query = "UPDATE Users SET user_name = ?, email = ?, password_hash = ?, user_rewards_points = ? WHERE user_id = ?";
+
+        Optional<User> userOptional = Optional.empty();
+
+        try (Connection connection = dataSource.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, user.getUserName());
+            preparedStatement.setString(2, user.getUserEmail());
+            preparedStatement.setString(3, user.getUserPassword());
+            preparedStatement.setInt(4, user.getUserRewardsPoints());
+            preparedStatement.setInt(5, user.getUserId());
+            preparedStatement.executeUpdate();
+
+            userOptional = findUserByEmail(user.getUserEmail());
         } catch (SQLException e) {
             e.printStackTrace();
         }

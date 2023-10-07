@@ -1,6 +1,7 @@
 package au.edu.rmit.sept.SuperPrice.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,10 +20,10 @@ import au.edu.rmit.sept.SuperPrice.service.OrderService;
 @RequestMapping(value = "/")
 @CrossOrigin(value = "http://localhost:5173")
 public class OrderController {
+    // Order controller methods for the running of Order service methods
+
     @Autowired
     private OrderService orderService;
-
-    // ORDER CONTROLLER METHODS
 
     // Get all Orders
     @GetMapping("v1/Orders")
@@ -40,12 +41,28 @@ public class OrderController {
         }
     }
 
-    // TODO: Create new Order
+
+    // Get Order by order_id
+    @GetMapping("v1/Order/{order_id}")
+    public ResponseEntity<Order> getOrderByOrderId(@PathVariable("order_id") int order_id) {
+        Optional<Order> orderOptional = this.orderService.getOrderByOrderId(order_id);
+        return orderOptional.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+
+    // Create new Order TODO: Test this method
     @GetMapping("v1/createOrder")
     public ResponseEntity<Order> createNewOrder(@RequestParam int user_id) {
         Order newOrder = new Order(user_id);
-//        newOrder.setUserId(user_id);
-        Order userOrder = this.orderService.createOrder(newOrder);
-        return new ResponseEntity<>(userOrder, HttpStatus.CREATED);
+        Optional<Order> userOrder = this.orderService.createOrder(newOrder);
+        return userOrder.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+
+    // Update Order TODO: Test this method
+    @PutMapping("v1/updateOrder")
+    public ResponseEntity<Order> updateOrder(@RequestBody Order order) {
+        Optional<Order> orderOptional = this.orderService.updateOrder(order);
+        return orderOptional.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 }
