@@ -14,7 +14,7 @@ import java.util.Optional;
 
 
 /** 
- * Base URL: http://localhost:8080/SuperPrice
+ * Base URL: http://localhost:8080/SuperPrice/v1
  * CrossOrigin requests permitted from URL: http://localhost:5173
  */
 

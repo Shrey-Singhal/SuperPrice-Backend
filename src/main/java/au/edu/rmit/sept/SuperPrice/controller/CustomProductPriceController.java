@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  * CustomController class handles requests for custom queries
- * Base URL: http://localhost:8080/SuperPrice
+ * Base URL: http://localhost:8080/SuperPrice/v2/ProductPrices
  * CrossOrigin: http://localhost:5173
  * 
  * TODO: Update final URLs
@@ -25,37 +25,37 @@ public class CustomProductPriceController {
     @Autowired
     private CustomProductPriceService customService;
 
-    // TODO: Test this method
+    // TODO: Test this method / remove if not used
     // Get custom ProductPrices data by selected inputs or display all for default supermarket if none selected (related Products, ProductPrices, ProductRewards & Supermarkets data)
-    @GetMapping
-    public ResponseEntity<List<CustomDTOProductPrices>> getProductsBySupermarketIdAndProductCategory(@RequestParam(required = false) Long supermarket_id, @RequestParam(required = false) String product_category) {
-        if (supermarket_id == null && product_category == null) {
-            // Get all ProductPrices for default supermarket (supermarket_id = 1)
-            int supermarketId = 1;
-            List<CustomDTOProductPrices> customProductPriceData = this.customService.getProductPricesBySupermarketId(supermarketId);
+    // @GetMapping
+    // public ResponseEntity<List<CustomDTOProductPrices>> getProductsBySupermarketIdAndProductCategory(@RequestParam(required = false) Long supermarket_id, @RequestParam(required = false) String product_category) {
+    //     if (supermarket_id == null && product_category == null) {
+    //         // Get all ProductPrices for default supermarket (supermarket_id = 1)
+    //         int supermarketId = 1;
+    //         List<CustomDTOProductPrices> customProductPriceData = this.customService.getProductPricesBySupermarketId(supermarketId);
 
-            // Convert to ResponseEntity
-            if (!customProductPriceData.isEmpty()) {
-                // OK
-                return ResponseEntity.ok(customProductPriceData);
-            } else {
-                // No Content
-                return ResponseEntity.noContent().build();
-            }
-        } else {
-            // Get all ProductPrices in selected category & supermarket
-            List<CustomDTOProductPrices> customProductPriceData = this.customService.getProductPricesBySupermarketIdAndProductCategory(supermarket_id, product_category);
+    //         // Convert to ResponseEntity
+    //         if (!customProductPriceData.isEmpty()) {
+    //             // OK
+    //             return ResponseEntity.ok(customProductPriceData);
+    //         } else {
+    //             // No Content
+    //             return ResponseEntity.noContent().build();
+    //         }
+    //     } else {
+    //         // Get all ProductPrices in selected category & supermarket
+    //         List<CustomDTOProductPrices> customProductPriceData = this.customService.getProductPricesBySupermarketIdAndProductCategory(supermarket_id, product_category);
 
-            // Convert to ResponseEntity
-            if (!customProductPriceData.isEmpty()) {
-                // OK
-                return ResponseEntity.ok(customProductPriceData);
-            } else {
-                // No Content
-                return ResponseEntity.noContent().build();
-            }
-        }
-    }
+    //         // Convert to ResponseEntity
+    //         if (!customProductPriceData.isEmpty()) {
+    //             // OK
+    //             return ResponseEntity.ok(customProductPriceData);
+    //         } else {
+    //             // No Content
+    //             return ResponseEntity.noContent().build();
+    //         }
+    //     }
+    // }
 
     // Get custom ProductPrices data by given product_id (related Products, ProductPrices, ProductRewards & Supermarkets data)
     @GetMapping("/{product_id}")
