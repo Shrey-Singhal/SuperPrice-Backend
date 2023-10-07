@@ -52,4 +52,29 @@ public class SupermarketController {
             return ResponseEntity.noContent().build();
         }
     }
+
+
+    // Get Supermarket by supermarket_name
+    @GetMapping("v1/Supermarkets/name/{supermarket_name}")
+    public ResponseEntity<Supermarket> getSupermarketByName(@PathVariable String supermarket_name) {
+        // Get Supermarket by name
+        Optional<Supermarket> supermarket = this.supermarketService.getSupermarketByName(supermarket_name);
+
+        // Convert to ResponseEntity
+        if (supermarket.isPresent()) {
+            // OK
+            return ResponseEntity.ok(supermarket.get());
+        } else {
+            // No Content
+            return ResponseEntity.noContent().build();
+        }
+    }
+
+
+    // Create new Supermarket TODO: Test this method
+    @PostMapping("v1/createSupermarket")
+    public ResponseEntity<Supermarket> createSupermarket(@RequestBody Supermarket supermarket) {
+        Optional<Supermarket> supermarketOptional = this.supermarketService.createSupermarket(supermarket);
+        return supermarketOptional.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
 }
