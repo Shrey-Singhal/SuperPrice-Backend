@@ -16,7 +16,7 @@ import au.edu.rmit.sept.SuperPrice.model.User;
  * CrossOrigin: http://localhost:5173
  */
 @RestController
-@RequestMapping(value = "/")
+@RequestMapping(value = "/SuperPrice/v1")
 @CrossOrigin(value = "http://localhost:5173")
 public class UserController {
     // User controller methods for the running of User service methods
@@ -25,7 +25,7 @@ public class UserController {
     private UserService userService;
 
     // Get all Users
-    @GetMapping("v1/Users")
+    @GetMapping("/Users")
     public ResponseEntity<List<User>> getAllUsers() {
         // Get a list of Users
         List<User> users = this.userService.getAllUsers();
@@ -42,7 +42,7 @@ public class UserController {
 
 
     // Get User by email
-    @GetMapping("v1/User/{email}")
+    @GetMapping("/User/{email}")
     public ResponseEntity<User> getUserByEmail(@PathVariable("email") String email) {
         Optional<User> userOptional = this.userService.getUserByEmail(email);
         return userOptional.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
@@ -50,7 +50,7 @@ public class UserController {
     
 
     // Create new User TODO: Test this method
-    @PostMapping("v1/createUser")
+    @PostMapping("/createUser")
     public ResponseEntity<User> createUser(@RequestBody User user) {
         Optional<User> userOptional = this.userService.createUser(user.getUserName(), user.getUserEmail(), user.getUserPassword());
         return userOptional.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
@@ -58,7 +58,7 @@ public class UserController {
 
 
     // Update User TODO: Test this method
-    @PutMapping("v1/updateUser")
+    @PutMapping("/updateUser")
     public ResponseEntity<User> updateUser(@RequestBody User user) {
         Optional<User> userOptional = this.userService.updateUser(user);
         return userOptional.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());

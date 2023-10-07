@@ -17,7 +17,7 @@ import au.edu.rmit.sept.SuperPrice.service.OrderService;
  * CrossOrigin: http://localhost:5173
  */
 @RestController
-@RequestMapping(value = "/")
+@RequestMapping(value = "/SuperPrice/v1")
 @CrossOrigin(value = "http://localhost:5173")
 public class OrderController {
     // Order controller methods for the running of Order service methods
@@ -26,7 +26,7 @@ public class OrderController {
     private OrderService orderService;
 
     // Get all Orders
-    @GetMapping("v1/Orders")
+    @GetMapping("/Orders")
     public ResponseEntity<List<Order>> getAllOrders() {
         // Get a list of Orders
         List<Order> orders = this.orderService.getAllOrders();
@@ -43,7 +43,7 @@ public class OrderController {
 
 
     // Get Order by order_id
-    @GetMapping("v1/Order/{order_id}")
+    @GetMapping("/Order/{order_id}")
     public ResponseEntity<Order> getOrderByOrderId(@PathVariable("order_id") int order_id) {
         Optional<Order> orderOptional = this.orderService.getOrderByOrderId(order_id);
         return orderOptional.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
@@ -51,7 +51,7 @@ public class OrderController {
 
 
     // Create new Order TODO: Test this method
-    @GetMapping("v1/createOrder")
+    @GetMapping("/createOrder")
     public ResponseEntity<Order> createNewOrder(@RequestParam int user_id) {
         Order newOrder = new Order(user_id);
         Optional<Order> userOrder = this.orderService.createOrder(newOrder);
@@ -60,7 +60,7 @@ public class OrderController {
 
 
     // Update Order TODO: Test this method
-    @PutMapping("v1/updateOrder")
+    @PutMapping("/updateOrder")
     public ResponseEntity<Order> updateOrder(@RequestBody Order order) {
         Optional<Order> orderOptional = this.orderService.updateOrder(order);
         return orderOptional.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
