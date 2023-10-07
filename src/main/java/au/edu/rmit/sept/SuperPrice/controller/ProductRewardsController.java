@@ -16,7 +16,7 @@ import au.edu.rmit.sept.SuperPrice.model.ProductReward;
  * CrossOrigin: http://localhost:5173
  */
 @RestController
-@RequestMapping(value = "/SuperPrice/")
+@RequestMapping(value = "/SuperPrice/v1")
 @CrossOrigin(value = "http://localhost:5173")
 public class ProductRewardsController {
     // ProductReward controller methods for the running of ProductReward service methods
@@ -25,7 +25,7 @@ public class ProductRewardsController {
     private ProductRewardService productRewardService;
 
     // Get all ProductRewards
-    @GetMapping("v1/ProductRewards")
+    @GetMapping("/ProductRewards")
     public ResponseEntity<List<ProductReward>> getAllProductRewards() {
         // Get a list of ProductRewards
         List<ProductReward> productRewards = this.productRewardService.getAllProductRewards();
@@ -41,35 +41,35 @@ public class ProductRewardsController {
     }
 
     // Get ProductReward by product_reward_id
-    @GetMapping("v1/ProductReward/{product_reward_id}")
+    @GetMapping("/ProductReward/{product_reward_id}")
     public ResponseEntity<ProductReward> getProductRewardByProductRewardId(@PathVariable("product_reward_id") int product_reward_id) {
         Optional<ProductReward> productRewardOptional = this.productRewardService.getProductRewardByProductRewardId(product_reward_id);
         return productRewardOptional.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     // Get ProductRewards by product_id
-    @GetMapping("v1/ProductRewards/Product/{product_id}")
+    @GetMapping("/ProductRewards/Product/{product_id}")
     public ResponseEntity<List<ProductReward>> getProductRewardsByProductId(@PathVariable("product_id") int product_id) {
         List<ProductReward> productRewards = this.productRewardService.getProductRewardsByProductId(product_id);
         return ResponseEntity.ok(productRewards);
     }
 
     // Get ProductRewards by supermarket_id
-    @GetMapping("v1/ProductRewards/Supermarket/{supermarket_id}")
+    @GetMapping("/ProductRewards/Supermarket/{supermarket_id}")
     public ResponseEntity<List<ProductReward>> getProductRewardsBySupermarketId(@PathVariable("supermarket_id") int supermarket_id) {
         List<ProductReward> productRewards = this.productRewardService.getProductRewardsBySupermarketId(supermarket_id);
         return ResponseEntity.ok(productRewards);
     }
 
     // Create new ProductReward TODO: Test this method
-    @PostMapping("v1/createProductReward")
+    @PostMapping("/createProductReward")
     public ResponseEntity<ProductReward> createProductReward(@RequestBody ProductReward productReward) {
         Optional<ProductReward> productRewardOptional = this.productRewardService.createProductReward(productReward);
         return productRewardOptional.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     // Update ProductReward TODO: Test this method
-    @PutMapping("v1/updateProductReward")
+    @PutMapping("/updateProductReward")
     public ResponseEntity<ProductReward> updateProductReward(@RequestBody ProductReward productReward) {
         Optional<ProductReward> productRewardOptional = this.productRewardService.updateProductReward(productReward);
         return productRewardOptional.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());

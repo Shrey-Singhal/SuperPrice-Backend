@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(value = "/SuperPrice/")
+@RequestMapping(value = "/SuperPrice/v1")
 @CrossOrigin(value = "http://localhost:5173")
 public class SupermarketController {
     @Autowired
@@ -22,7 +22,7 @@ public class SupermarketController {
     // SUPERMARKET CONTROLLER METHODS
 
     // Get all Supermarkets
-    @GetMapping("v1/Supermarkets")
+    @GetMapping("/Supermarkets")
     public ResponseEntity<List<Supermarket>> getAllSupermarkets() {
         // Get a list of Supermarkets
         List<Supermarket> supermarkets = this.supermarketService.getAllSupermarkets();
@@ -38,7 +38,7 @@ public class SupermarketController {
     }
 
     // Get Supermarket by supermarket_id
-    @GetMapping("v1/Supermarkets/{supermarket_id}")
+    @GetMapping("/Supermarkets/{supermarket_id}")
     public ResponseEntity<Supermarket> getSupermarketById(@PathVariable int supermarket_id) {
         // Get Supermarket by id
         Optional<Supermarket> supermarket = this.supermarketService.getSupermarketById(supermarket_id);
@@ -55,7 +55,7 @@ public class SupermarketController {
 
 
     // Get Supermarket by supermarket_name
-    @GetMapping("v1/Supermarkets/name/{supermarket_name}")
+    @GetMapping("/Supermarkets/name/{supermarket_name}")
     public ResponseEntity<Supermarket> getSupermarketByName(@PathVariable String supermarket_name) {
         // Get Supermarket by name
         Optional<Supermarket> supermarket = this.supermarketService.getSupermarketByName(supermarket_name);
@@ -72,7 +72,7 @@ public class SupermarketController {
 
 
     // Create new Supermarket TODO: Test this method
-    @PostMapping("v1/createSupermarket")
+    @PostMapping("/createSupermarket")
     public ResponseEntity<Supermarket> createSupermarket(@RequestBody Supermarket supermarket) {
         Optional<Supermarket> supermarketOptional = this.supermarketService.createSupermarket(supermarket);
         return supermarketOptional.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
