@@ -8,12 +8,15 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 
+/**
+ * Custom Service class handles business logic related to the running of custom ProductPrices repository methods
+ */
 @Service
 public class CustomService {
     @Autowired
     private CustomProductPriceRepository customProductPriceRepository;
 
-    // Custom service methods for the running of custom repository methods
+    // CUSTOM SERVICE METHODS
 
     // Get Product, ProductPrices, ProductRewards & Supermarkets data by selected product_id
     public List<CustomDTOProductPrices> getProductPricesByProductId(int product_id) {

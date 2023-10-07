@@ -15,10 +15,11 @@ import java.sql.Timestamp;
 import javax.sql.DataSource;
 
 
+/**
+ * ProductPriceRepositoryImpl class handles the retrieval of ProductPrice data from the database
+ */
 @Repository
 public class ProductPriceRepositoryImpl implements ProductPriceRepository {
-    // 
-
     // Create DataSource object
     private DataSource dataSource = DataSourceBuilder.create()
             .driverClassName("com.mysql.cj.jdbc.Driver")
@@ -55,9 +56,9 @@ public class ProductPriceRepositoryImpl implements ProductPriceRepository {
         return productPrices;
     }
 
-    // Get ProductPrices by Product id
+    // Get ProductPrices by product_id
     @Override
-    public List<ProductPrice> retrieveProductPriceByProductId(int product_id) {
+    public List<ProductPrice> retrieveProductPricesByProductId(int product_id) {
         String query = "SELECT * FROM ProductPrices WHERE product_id = ?";
 
         List<ProductPrice> productPrices = new ArrayList<>();
@@ -83,9 +84,9 @@ public class ProductPriceRepositoryImpl implements ProductPriceRepository {
         return productPrices;
     }
 
-    // Get ProductPrices by Supermarket id
+    // Get ProductPrices by supermarket_id
     @Override
-    public List<ProductPrice> retrieveProductPriceBySupermarketId(int supermarket_id) {
+    public List<ProductPrice> retrieveProductPricesBySupermarketId(int supermarket_id) {
         String query = "SELECT * FROM ProductPrices WHERE supermarket_id = ?";
 
         List<ProductPrice> productPrices = new ArrayList<>();

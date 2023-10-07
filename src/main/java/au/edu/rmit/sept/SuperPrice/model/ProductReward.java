@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "ProductRewards") // Specify table name?
-public class ProductRewards {
+public class ProductReward {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "product_reward_id", updatable = false)
@@ -18,9 +18,9 @@ public class ProductRewards {
     private int rewards_points;
 
     // Constructors
-    public ProductRewards() {}
+    public ProductReward() {}
 
-    public ProductRewards(int product_reward_id, int product_id, int supermarket_id, int rewards_points) {
+    public ProductReward(int product_reward_id, int product_id, int supermarket_id, int rewards_points) {
         this.product_reward_id = product_reward_id;
         this.product_id = product_id;
         this.supermarket_id = supermarket_id;

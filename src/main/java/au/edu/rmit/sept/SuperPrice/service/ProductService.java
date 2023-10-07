@@ -1,7 +1,7 @@
 package au.edu.rmit.sept.SuperPrice.service;
 
-import au.edu.rmit.sept.SuperPrice.model.*;
-import au.edu.rmit.sept.SuperPrice.repository.*;
+import au.edu.rmit.sept.SuperPrice.model.Product;
+import au.edu.rmit.sept.SuperPrice.repository.ProductRepositoryImpl;
 
 // Spring Boot package class imports
 import org.springframework.stereotype.Service;
@@ -16,43 +16,42 @@ import java.util.Optional;
 public class ProductService {
     // Declare repository instances
     @Autowired
-    private ProductRepository productRepository;
+    private ProductRepositoryImpl productRepository;
 
 
     // Get all Products
     public List<Product> getAllProducts() {
-        return this.productRepository.findAllBy();
+        return this.productRepository.findAllProducts();
     }
 
-    // Get all distinct product categories
+
+    // Get all distinct Product categories
     public List<String> getAllProductCategories() {
-        return this.productRepository.retrieveDistinctProductCategories();
+        return this.productRepository.findProductCategories();
     }
+
 
     // Get all Products by category
     public List<Product> getAllProductsByCategory(String product_category) {
-        return this.productRepository.findAllByCategory(product_category);
+        return this.productRepository.findProductsByCategory(product_category);
     }
+
 
     // Get Product by id
     public Optional<Product> getProductById(Long productId) {
-        return this.productRepository.findById(productId);
+        return this.productRepository.findProductById(productId);
     }
 
-    // Get Product id by Name
-    public Long getProductIdByProductName(String product_name) {
-        return this.productRepository.retrieveProductIdByProductName(product_name);
+
+    // Get Product by Name
+    public Optional<Product> getProductByProductName(String product_name) {
+        return this.productRepository.findProductByProductName(product_name);
     }
 
-    // TODO: Add a new Product to the database
-    public Product addProduct(Product product) {
+
+    // Add a new Product to the database TODO: Test this method
+    public Optional<Product> createProduct(Product product) {
         // Add Product to the database
-        return this.productRepository.save(product);
+        return this.productRepository.saveProduct(product);
     }
-
-
-
-
-    // TODO: Process Order -> Add Order to Order History & Update Users Rewards Points
-
 }

@@ -8,7 +8,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "Supermarkets")
-public class Supermarkets {
+public class Supermarket {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int supermarket_id;
@@ -17,9 +17,9 @@ public class Supermarkets {
     private double latitude; // TODO: Remove if not needed
     private double longitude; // TODO: Remove if not needed
 
-    public Supermarkets() {}
+    public Supermarket() {}
 
-    public Supermarkets(
+    public Supermarket(
             int supermarket_id,
             String supermarket_name,
             String supermarket_address,

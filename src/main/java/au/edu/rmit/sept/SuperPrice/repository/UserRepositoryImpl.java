@@ -86,7 +86,7 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
 
-    // Create new User
+    // Create new User TODO: Test this method
     @Override
     public Optional<User> saveUser(User user) {
         String query = "INSERT INTO Users (user_name, email, password_hash) VALUES (?, ?, ?)";
