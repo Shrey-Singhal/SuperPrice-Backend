@@ -12,7 +12,7 @@ import java.util.List;
  * Custom Service class handles business logic related to the running of custom ProductPrices repository methods
  */
 @Service
-public class CustomService {
+public class CustomProductPriceService {
     @Autowired
     private CustomProductPriceRepository customProductPriceRepository;
 

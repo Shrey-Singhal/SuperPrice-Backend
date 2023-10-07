@@ -4,7 +4,6 @@ import au.edu.rmit.sept.SuperPrice.model.Order;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.stereotype.Repository;
 import javax.sql.DataSource;
-// import javax.xml.crypto.Data;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -20,7 +19,7 @@ import java.util.Optional;
  * OrderRepositoryImpl class handles database operations related to the Order table
  */
 @Repository
-public class OrderRepositoryImpl {
+public class OrderRepositoryImpl implements OrderRepository {
     // Implements Order Repository methods
 
     // Create DataSource object

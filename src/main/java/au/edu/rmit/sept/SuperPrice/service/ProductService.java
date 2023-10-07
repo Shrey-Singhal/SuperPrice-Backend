@@ -1,10 +1,9 @@
 package au.edu.rmit.sept.SuperPrice.service;
 
 import au.edu.rmit.sept.SuperPrice.model.Product;
-import au.edu.rmit.sept.SuperPrice.repository.ProductRepositoryImpl;
-
-import org.springframework.stereotype.Service;
+import au.edu.rmit.sept.SuperPrice.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,7 +12,7 @@ import java.util.Optional;
 public class ProductService {
     // Declare repository instances
     @Autowired
-    private ProductRepositoryImpl productRepository;
+    private ProductRepository productRepository;
 
 
     // Get all Products

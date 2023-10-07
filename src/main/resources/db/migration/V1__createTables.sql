@@ -10,8 +10,8 @@ DROP TABLE IF EXISTS ProductPrices;
 DROP TABLE IF EXISTS ProductRewards;
 -- DROP TABLE IF EXISTS UserAddresses;
 DROP TABLE IF EXISTS Orders;
-DROP TABLE IF EXISTS OrderProducts;
-DROP TABLE IF EXISTS OrderHistory;
+-- DROP TABLE IF EXISTS OrderProducts;
+-- DROP TABLE IF EXISTS OrderHistory;
 -- DROP TABLE IF EXISTS UserRewardsPoints;
 -- DROP TABLE IF EXISTS RewardsLevels;
 

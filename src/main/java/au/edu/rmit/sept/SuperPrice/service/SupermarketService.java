@@ -1,7 +1,7 @@
 package au.edu.rmit.sept.SuperPrice.service;
 
 import au.edu.rmit.sept.SuperPrice.model.Supermarket;
-import au.edu.rmit.sept.SuperPrice.repository.SupermarketRepositoryImpl;
+import au.edu.rmit.sept.SuperPrice.repository.SupermarketRepository;
 
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,7 @@ import java.util.Optional;
 public class SupermarketService {
     // Declare repository instances
     @Autowired
-    private SupermarketRepositoryImpl supermarketRepository;
+    private SupermarketRepository supermarketRepository;
 
     // Get all Supermarkets
     public List<Supermarket> getAllSupermarkets() {

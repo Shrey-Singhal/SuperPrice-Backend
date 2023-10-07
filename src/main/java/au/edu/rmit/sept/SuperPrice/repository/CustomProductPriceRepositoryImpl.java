@@ -123,8 +123,8 @@ public class CustomProductPriceRepositoryImpl implements CustomProductPriceRepos
     public List<CustomDTOProductPrices> retrieveProductCategoriesBySupermarketId(int supermarket_id) {
         // Custom query joining Product, ProductPrices, & Supermarkets tables by given supermarket_id
         String query = "SELECT DISTINCT p.product_category " +
-                "FROM Product p " +
-                "INNER JOIN ProductPrice pp ON p.product_id = pp.product_id " +
+                "FROM Products p " +
+                "INNER JOIN ProductPrices pp ON p.product_id = pp.product_id " +
                 "INNER JOIN Supermarkets s ON pp.supermarket_id = s.supermarket_id " +
                 "INNER JOIN ProductRewards pr ON pp.supermarket_id = pr.supermarket_id AND pp.product_id = pr.product_id " +
                 "WHERE s.supermarket_id = ?";
@@ -157,8 +157,8 @@ public class CustomProductPriceRepositoryImpl implements CustomProductPriceRepos
     public List<CustomDTOProductPrices> retrieveProductPricesBySupermarketIdAndProductCategory(int supermarket_id, String product_category) {
         // Custom query joining Product, ProductPrices, & Supermarkets tables by given product_category & supermarket_id
         String query = "SELECT p.product_id, p.product_name, p.product_category, pp.product_price_id, pp.product_price, pr.rewards_points, s.supermarket_id, s.supermarket_name, s.supermarket_address " +
-                "FROM Product p " +
-                "INNER JOIN ProductPrice pp ON p.product_id = pp.product_id " +
+                "FROM Products p " +
+                "INNER JOIN ProductPrices pp ON p.product_id = pp.product_id " +
                 "INNER JOIN Supermarkets s ON pp.supermarket_id = s.supermarket_id " +
                 "INNER JOIN ProductRewards pr ON pp.supermarket_id = pr.supermarket_id AND pp.product_id = pr.product_id " +
                 "WHERE s.supermarket_id = ? AND LOWER(p.product_category) = LOWER(?)";

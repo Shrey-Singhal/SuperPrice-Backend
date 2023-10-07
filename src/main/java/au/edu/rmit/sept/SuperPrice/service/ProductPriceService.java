@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import au.edu.rmit.sept.SuperPrice.model.ProductPrice;
-import au.edu.rmit.sept.SuperPrice.repository.ProductPriceRepositoryImpl;
+import au.edu.rmit.sept.SuperPrice.repository.ProductPriceRepository;
 
 
 /**
@@ -15,20 +15,20 @@ import au.edu.rmit.sept.SuperPrice.repository.ProductPriceRepositoryImpl;
 @Service
 public class ProductPriceService {
     @Autowired
-    private ProductPriceRepositoryImpl productPriceRepositoryImpl;
+    private ProductPriceRepository productPriceRepository;
 
     // Get all ProductPrices
     public List<ProductPrice> getProductPrices() {
-        return this.productPriceRepositoryImpl.retrieveAllProductPrices();
+        return this.productPriceRepository.retrieveAllProductPrices();
     }
 
     // Get ProductPrices by product_id
     public List<ProductPrice> getProductPricesByProductId(int product_id) {
-        return this.productPriceRepositoryImpl.retrieveProductPricesByProductId(product_id);
+        return this.productPriceRepository.retrieveProductPricesByProductId(product_id);
     }
 
     // Get ProductPrices by supermarket_id
     public List<ProductPrice> getProductPricesBySupermarketId(int supermarket_id) {
-        return this.productPriceRepositoryImpl.retrieveProductPricesBySupermarketId(supermarket_id);
+        return this.productPriceRepository.retrieveProductPricesBySupermarketId(supermarket_id);
     }
 }

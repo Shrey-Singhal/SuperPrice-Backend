@@ -1,6 +1,6 @@
 package au.edu.rmit.sept.SuperPrice.service;
 
-import au.edu.rmit.sept.SuperPrice.repository.UserRepositoryImpl;
+import au.edu.rmit.sept.SuperPrice.repository.UserRepository;
 import au.edu.rmit.sept.SuperPrice.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,17 +13,17 @@ public class UserService {
     // User service methods for the running of User repository methods
 
     @Autowired
-    private UserRepositoryImpl userRepositoryImpl;
+    private UserRepository userRepository;
 
     // Get all Users
     public List<User> getAllUsers() {
-        return this.userRepositoryImpl.findAllUsers();
+        return this.userRepository.findAllUsers();
     }
 
 
     // Get User by email
     public Optional<User> getUserByEmail(String email) {
-        Optional<User> user = this.userRepositoryImpl.findUserByEmail(email);
+        Optional<User> user = this.userRepository.findUserByEmail(email);
         return user;
     }
 
@@ -35,12 +35,12 @@ public class UserService {
         newUser.setUserEmail(email);
         newUser.setUserPassword(password_hash);
 
-        return this.userRepositoryImpl.saveUser(newUser);
+        return this.userRepository.saveUser(newUser);
     }
 
 
     // Update User TODO: Test this method
     public Optional<User> updateUser(User user) {
-        return this.userRepositoryImpl.updateUser(user);
+        return this.userRepository.updateUser(user);
     }
 }

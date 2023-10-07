@@ -1,6 +1,8 @@
 package au.edu.rmit.sept.SuperPrice.repository;
 
 import org.springframework.boot.jdbc.DataSourceBuilder;
+import org.springframework.stereotype.Repository;
+
 import au.edu.rmit.sept.SuperPrice.model.Product;
 
 import java.util.List;
@@ -10,10 +12,11 @@ import java.util.ArrayList;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
+// import java.sql.Timestamp;
 
 import javax.sql.DataSource;
 
+@Repository
 public class ProductRepositoryImpl implements ProductRepository {
     // Create DataSource object
     private DataSource dataSource = DataSourceBuilder.create()

@@ -11,7 +11,7 @@ import au.edu.rmit.sept.SuperPrice.service.ProductPriceService;
 
 
 @RestController
-@RequestMapping(value = "/")
+@RequestMapping(value = "/v1/ProductPrices")
 @CrossOrigin(value = "http://localhost:5173")
 public class ProductPricesController {
     // Declare service instance/s
@@ -19,7 +19,7 @@ public class ProductPricesController {
     private ProductPriceService productPriceService;
 
     // Get all ProductPrices
-    @GetMapping("v1/ProductPrices")
+    @GetMapping
     public ResponseEntity<List<ProductPrice>> getAllProductPrices() {
         // Get a list of ProductPrices
         List<ProductPrice> prices = this.productPriceService.getProductPrices();
@@ -36,7 +36,7 @@ public class ProductPricesController {
 
 
     // Get Product Prices by Product id
-    @GetMapping("v1/ProductPrices/{product_id}")
+    @GetMapping("/{product_id}")
     public ResponseEntity<List<ProductPrice>> getProductPricesByProductId(@PathVariable int product_id) {
         // Get list of ProductPrices
         List<ProductPrice> prices = this.productPriceService.getProductPricesByProductId(product_id);
@@ -53,7 +53,7 @@ public class ProductPricesController {
 
 
     // Get Product Prices by Supermarket id
-    @GetMapping("v1/ProductPrices/Supermarket/{supermarket_id}")
+    @GetMapping("/Supermarket/{supermarket_id}")
     public ResponseEntity<List<ProductPrice>> getProductPricesBySupermarketId(@PathVariable int supermarket_id) {
         // Get list of ProductPrices
         List<ProductPrice> prices = this.productPriceService.getProductPricesBySupermarketId(supermarket_id);
