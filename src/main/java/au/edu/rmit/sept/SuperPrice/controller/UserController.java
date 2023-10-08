@@ -25,7 +25,7 @@ public class UserController {
     private UserService userService;
 
     // Get all Users
-    @GetMapping("/Users")
+    @GetMapping("/users")
     public ResponseEntity<List<User>> getAllUsers() {
         // Get a list of Users
         List<User> users = this.userService.getAllUsers();
@@ -42,7 +42,7 @@ public class UserController {
 
 
     // Get User by email
-    @GetMapping("/User/{email}")
+    @GetMapping("/user/{email}")
     public ResponseEntity<User> getUserByEmail(@PathVariable("email") String email) {
         Optional<User> userOptional = this.userService.getUserByEmail(email);
         return userOptional.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
@@ -50,15 +50,15 @@ public class UserController {
     
 
     // Create new User TODO: Test this method
-    @PostMapping("/createUser")
+    @PostMapping("/users/createUser")
     public ResponseEntity<User> createUser(@RequestBody User user) {
-        Optional<User> userOptional = this.userService.createUser(user.getUserName(), user.getUserEmail(), user.getUserPassword());
+        Optional<User> userOptional = this.userService.createUser(user);
         return userOptional.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
 
     // Update User TODO: Test this method
-    @PutMapping("/updateUser")
+    @PutMapping("/users/would updateUser")
     public ResponseEntity<User> updateUser(@RequestBody User user) {
         Optional<User> userOptional = this.userService.updateUser(user);
         return userOptional.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());

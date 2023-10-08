@@ -29,13 +29,8 @@ public class UserService {
 
 
     // Create new User TODO: Test this method
-    public Optional<User> createUser(String user_name, String email, String password_hash) {
-        User newUser = new User();
-        newUser.setUserName(user_name);
-        newUser.setUserEmail(email);
-        newUser.setUserPassword(password_hash);
-
-        return this.userRepository.saveUser(newUser);
+    public Optional<User> createUser(User user) {
+        return this.userRepository.saveUser(user);
     }
 
 
