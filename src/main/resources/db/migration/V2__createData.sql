@@ -23,7 +23,7 @@ INSERT INTO Products (product_name, product_category) VALUES
 ('Free Range Eggs', 'Meat, Poultry & Eggs'),
 ('Granny Smith Apples', 'Fresh Fruit & Vegetables'),
 ('Basmati Rice', 'Pantry'),
-('Low Fat Yogurt', 'Dairy Products'),
+('Low Fat Yoghurt', 'Dairy Products'),
 ('Multigrain Baguette', 'Bakery Products'),
 ('Chicken Breast', 'Meat, Poultry & Eggs'),
 ('Oranges', 'Fresh Fruit & Vegetables'),

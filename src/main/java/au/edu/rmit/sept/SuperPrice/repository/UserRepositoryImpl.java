@@ -1,6 +1,6 @@
 package au.edu.rmit.sept.SuperPrice.repository;
 
-import org.springframework.boot.jdbc.DataSourceBuilder;
+// import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.stereotype.Repository;
 import au.edu.rmit.sept.SuperPrice.config.DataSourceConfig;
 import au.edu.rmit.sept.SuperPrice.model.User;
@@ -25,12 +25,6 @@ public class UserRepositoryImpl implements UserRepository {
 
     // Create DataSource object
     private DataSource dataSource = DataSourceConfig.getDataSource();
-    // private DataSource dataSource = DataSourceBuilder.create()
-    //         .driverClassName("com.mysql.cj.jdbc.Driver")
-    //         .url("jdbc:mysql://127.0.0.1:3306/mysql")
-    //         .username("root")
-    //         .password("password")
-    //         .build();
 
     // Get all Users
     @Override

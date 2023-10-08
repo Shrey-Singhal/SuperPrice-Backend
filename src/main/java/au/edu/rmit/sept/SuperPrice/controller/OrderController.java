@@ -50,7 +50,7 @@ public class OrderController {
     }
 
 
-    // Create new Order TODO: Test this method
+    // Create new Order
     @PostMapping("/Orders/create")
     public ResponseEntity<Order> createNewOrder(@RequestParam int user_id) {
         Order newOrder = new Order(user_id);
@@ -59,7 +59,7 @@ public class OrderController {
     }
 
 
-    // Update Order TODO: Test this method
+    // Update Order
     @PutMapping("/Orders/update")
     public ResponseEntity<Order> updateOrder(@RequestBody Order order) {
         Optional<Order> orderOptional = this.orderService.updateOrder(order);

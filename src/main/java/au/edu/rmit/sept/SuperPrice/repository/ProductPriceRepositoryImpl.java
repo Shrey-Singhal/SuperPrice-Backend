@@ -1,7 +1,8 @@
 package au.edu.rmit.sept.SuperPrice.repository;
 
-import org.springframework.boot.jdbc.DataSourceBuilder;
+// import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.stereotype.Repository;
+import au.edu.rmit.sept.SuperPrice.config.DataSourceConfig;
 import au.edu.rmit.sept.SuperPrice.model.ProductPrice;
 
 import java.util.List;
@@ -20,13 +21,10 @@ import javax.sql.DataSource;
  */
 @Repository
 public class ProductPriceRepositoryImpl implements ProductPriceRepository {
+    // Implements ProductPrice Repository methods
+
     // Create DataSource object
-    private DataSource dataSource = DataSourceBuilder.create()
-            .driverClassName("com.mysql.cj.jdbc.Driver")
-            .url("jdbc:mysql://127.0.0.1:3306/mysql")
-            .username("root")
-            .password("password")
-            .build();
+    private DataSource dataSource = DataSourceConfig.getDataSource();
 
     // Get all ProductPrices
     @Override

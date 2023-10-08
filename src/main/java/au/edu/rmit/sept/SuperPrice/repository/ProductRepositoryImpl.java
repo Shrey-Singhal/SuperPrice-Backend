@@ -1,8 +1,9 @@
 package au.edu.rmit.sept.SuperPrice.repository;
 
-import org.springframework.boot.jdbc.DataSourceBuilder;
+// import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.stereotype.Repository;
 
+import au.edu.rmit.sept.SuperPrice.config.DataSourceConfig;
 import au.edu.rmit.sept.SuperPrice.model.Product;
 
 import java.util.List;
@@ -18,13 +19,10 @@ import javax.sql.DataSource;
 
 @Repository
 public class ProductRepositoryImpl implements ProductRepository {
+    // Implements Product Repository methods
+
     // Create DataSource object
-    private DataSource dataSource = DataSourceBuilder.create()
-            .driverClassName("com.mysql.cj.jdbc.Driver")
-            .url("jdbc:mysql://127.0.0.1:3306/mysql")
-            .username("root")
-            .password("password")
-            .build();
+    private DataSource dataSource = DataSourceConfig.getDataSource();
     
     // Find all Products
     @Override
@@ -132,7 +130,7 @@ public class ProductRepositoryImpl implements ProductRepository {
     // Find Product by product_name
     @Override
     public Optional<Product> findProductByProductName(String product_name) {
-        String query = "SELECT product_id FROM Products WHERE product_name = ?";
+        String query = "SELECT * FROM Products WHERE product_name = ?";
 
         Optional<Product> productOptional = Optional.empty();
 

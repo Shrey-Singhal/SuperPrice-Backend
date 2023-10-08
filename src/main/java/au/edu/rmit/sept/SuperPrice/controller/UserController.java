@@ -50,7 +50,7 @@ public class UserController {
     }
     
 
-    // Create new User TODO: Test this method
+    // Create new User
     @PostMapping("/users/createUser")
     public ResponseEntity<User> createUser(@RequestBody User user) {
         Optional<User> userOptional = this.userService.createUser(user);
@@ -58,7 +58,7 @@ public class UserController {
     }
 
 
-    // Create new User TODO: Test this method
+    // Create new User
     @PostMapping("/users/createUserTest")
     public ResponseEntity<String> createUserTest(@RequestBody User user) {
         Optional<User> userOptional = this.userService.createUser(user);
@@ -70,7 +70,7 @@ public class UserController {
     }
 
 
-    // Update User TODO: Test this method
+    // Update User
     @PutMapping("/users/updateUser")
     public ResponseEntity<User> updateUser(@RequestBody User user) {
         Optional<User> userOptional = this.userService.updateUser(user);

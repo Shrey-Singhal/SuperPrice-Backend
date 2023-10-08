@@ -25,12 +25,12 @@ public class OrderService {
         return this.orderRepository.findOrderByOrderId(order_id);
     }
 
-    // Create new Order TODO: Test this method
+    // Create new Order
     public Optional<Order> createOrder(Order newOrder) {
         return this.orderRepository.saveOrder(newOrder);
     }
 
-    // Update Order TODO: Test this method
+    // Update Order
     public Optional<Order> updateOrder(Order order) {
         return this.orderRepository.updateOrder(order);
     }

@@ -34,9 +34,8 @@ public class CustomProductPriceService {
     }
 
     // Get Products, ProductPrices, ProductRewards & Supermarkets data by selected category & supermarket_id
-    public List<CustomDTOProductPrices> getProductPricesBySupermarketIdAndProductCategory(Long supermarket_id, String product_category) {
-        int supermarket_id_int = Math.toIntExact(supermarket_id);
-        return this.customProductPriceRepository.retrieveProductPricesBySupermarketIdAndProductCategory(supermarket_id_int, product_category);
+    public List<CustomDTOProductPrices> getProductPricesBySupermarketIdAndProductCategory(int supermarket_id, String product_category) {
+        return this.customProductPriceRepository.retrieveProductPricesBySupermarketIdAndProductCategory(supermarket_id, product_category);
     }
 
     // TODO: Add any additional custom service methods here:
