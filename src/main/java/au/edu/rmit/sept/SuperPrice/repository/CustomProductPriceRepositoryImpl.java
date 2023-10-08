@@ -1,23 +1,20 @@
 package au.edu.rmit.sept.SuperPrice.repository;
 
-import au.edu.rmit.sept.SuperPrice.model.CustomDTOProductPrices;
-// import jakarta.persistence.EntityManager;
-// import jakarta.persistence.PersistenceContext;
-// import jakarta.persistence.TypedQuery;
-
-import org.springframework.boot.jdbc.DataSourceBuilder;
+// import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.stereotype.Repository;
-import javax.sql.DataSource;
-// import javax.xml.crypto.Data;
+import au.edu.rmit.sept.SuperPrice.config.DataSourceConfig;
+import au.edu.rmit.sept.SuperPrice.model.CustomDTOProductPrices;
 
+import java.util.List;
+import java.util.ArrayList;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
+// import java.sql.Timestamp;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.sql.DataSource;
+
 
 /**
  * Custom repository class handles custom queries returning aggregated data for ProductPrices & related tables
@@ -25,14 +22,7 @@ import java.util.List;
 @Repository
 public class CustomProductPriceRepositoryImpl implements CustomProductPriceRepository {
     // Create DataSource object
-    private DataSource dataSource = DataSourceBuilder.create()
-            .driverClassName("com.mysql.cj.jdbc.Driver")
-            .url("jdbc:mysql://127.0.0.1:3306/mysql")
-            .username("root")
-            .password("password")
-            .build();
-    
-    // CUSTOM PRODUCTPRICES REPOSITORY METHODS
+    private DataSource dataSource = DataSourceConfig.getDataSource();
 
     // Get custom ProductPrices data by selected product_id (related Products, ProductPrices, ProductRewards & Supermarkets data)
     @Override

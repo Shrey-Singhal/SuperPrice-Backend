@@ -1,19 +1,20 @@
 package au.edu.rmit.sept.SuperPrice.repository;
 
-import au.edu.rmit.sept.SuperPrice.model.Order;
-import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.stereotype.Repository;
-import javax.sql.DataSource;
+import au.edu.rmit.sept.SuperPrice.config.DataSourceConfig;
+import au.edu.rmit.sept.SuperPrice.model.Order;
+// import org.springframework.boot.jdbc.DataSourceBuilder;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import javax.sql.DataSource;
 
 /**
  * OrderRepositoryImpl class handles database operations related to the Order table
@@ -23,12 +24,7 @@ public class OrderRepositoryImpl implements OrderRepository {
     // Implements Order Repository methods
 
     // Create DataSource object
-    private DataSource dataSource = DataSourceBuilder.create()
-            .driverClassName("com.mysql.cj.jdbc.Driver")
-            .url("jdbc:mysql://127.0.0.1:3306/mysql")
-            .username("root")
-            .password("password")
-            .build();
+    private DataSource dataSource = DataSourceConfig.getDataSource();
     
     // Get all Orders
     public List<Order> findAllOrders() {

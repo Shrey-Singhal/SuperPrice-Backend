@@ -1,20 +1,19 @@
 package au.edu.rmit.sept.SuperPrice.repository;
 
-import au.edu.rmit.sept.SuperPrice.model.Supermarket;
-import org.springframework.boot.jdbc.DataSourceBuilder;
+// import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.stereotype.Repository;
-import javax.sql.DataSource;
-// import javax.xml.crypto.Data;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Timestamp;
+import au.edu.rmit.sept.SuperPrice.config.DataSourceConfig;
+import au.edu.rmit.sept.SuperPrice.model.Supermarket;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.sql.DataSource;
 
 
 /**
@@ -25,12 +24,7 @@ public class SupermarketRepositoryImpl implements SupermarketRepository {
     // Implements Supermarket Repository methods
 
     // Create DataSource object
-    private DataSource dataSource = DataSourceBuilder.create()
-            .driverClassName("com.mysql.cj.jdbc.Driver")
-            .url("jdbc:mysql://127.0.0.1:3306/mysql")
-            .username("root")
-            .password("password")
-            .build();
+    private DataSource dataSource = DataSourceConfig.getDataSource();
     
     // Get all Supermarkets
     @Override
