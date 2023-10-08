@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -57,8 +58,20 @@ public class UserController {
     }
 
 
+    // Create new User TODO: Test this method
+    @PostMapping("/users/createUserTest")
+    public ResponseEntity<String> createUserTest(@RequestBody User user) {
+        Optional<User> userOptional = this.userService.createUser(user);
+        if (!userOptional.isPresent()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("User already exists");
+        } else {
+            return ResponseEntity.status(HttpStatus.CREATED).body("User created successfully");
+        }
+    }
+
+
     // Update User TODO: Test this method
-    @PutMapping("/users/would updateUser")
+    @PutMapping("/users/updateUser")
     public ResponseEntity<User> updateUser(@RequestBody User user) {
         Optional<User> userOptional = this.userService.updateUser(user);
         return userOptional.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
