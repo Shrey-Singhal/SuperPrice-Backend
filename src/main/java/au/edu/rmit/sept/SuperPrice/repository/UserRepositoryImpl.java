@@ -2,6 +2,7 @@ package au.edu.rmit.sept.SuperPrice.repository;
 
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.stereotype.Repository;
+import au.edu.rmit.sept.SuperPrice.config.DataSourceConfig;
 import au.edu.rmit.sept.SuperPrice.model.User;
 
 import java.util.List;
@@ -23,12 +24,13 @@ public class UserRepositoryImpl implements UserRepository {
     // Implements User Repository methods
 
     // Create DataSource object
-    private DataSource dataSource = DataSourceBuilder.create()
-            .driverClassName("com.mysql.cj.jdbc.Driver")
-            .url("jdbc:mysql://127.0.0.1:3306/mysql")
-            .username("root")
-            .password("password")
-            .build();
+    private DataSource dataSource = DataSourceConfig.getDataSource();
+    // private DataSource dataSource = DataSourceBuilder.create()
+    //         .driverClassName("com.mysql.cj.jdbc.Driver")
+    //         .url("jdbc:mysql://127.0.0.1:3306/mysql")
+    //         .username("root")
+    //         .password("password")
+    //         .build();
 
     // Get all Users
     @Override
@@ -77,6 +79,7 @@ public class UserRepositoryImpl implements UserRepository {
                 String password_hash = resultSet.getString("password_hash");
                 int user_rewards_points = resultSet.getInt("user_rewards_points");
 
+                // Create Optional container object & add User object to it if it exists
                 user = Optional.of(new User(user_id, user_name, email, password_hash, user_rewards_points));
             }
         
@@ -102,6 +105,7 @@ public class UserRepositoryImpl implements UserRepository {
             preparedStatement.setString(3, user.getUserPassword());
             preparedStatement.executeUpdate();
 
+            // Get the newly created User from the database and return it
             userOptional = findUserByEmail(user.getUserEmail());
         
         } catch (SQLException e) {
