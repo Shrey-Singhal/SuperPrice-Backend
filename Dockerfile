@@ -1,14 +1,13 @@
-# Use an official OpenJDK runtime as a parent image
-FROM openjdk:11-jdk-slim
-
-# Set the working directory in the container
+# Use Maven or Gradle base image to build the JAR
+FROM maven:3.8.4-openjdk-11-slim AS build
 WORKDIR /app
+COPY src ./src
+COPY pom.xml ./
+RUN mvn package -DskipTests
 
-# Copy the built jar file into the container
-COPY target/superprice-app-0.0.1-SNAPSHOT.jar app.jar
-
-# Make port 8080 available outside this container
+# Use OpenJDK image to run the built JAR
+FROM openjdk:11-jdk-slim
+WORKDIR /app
+COPY --from=build /app/target/superprice-app-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 8080
-
-# Run the jar file
 CMD ["java", "-jar", "app.jar"]
