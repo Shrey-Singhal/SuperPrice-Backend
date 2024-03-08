@@ -1,22 +1,24 @@
 # Stage 1: Build the application
-FROM maven:3.8.4-openjdk-20-slim AS build
+FROM openjdk:18-jdk-slim AS build
 WORKDIR /app
 
-# Copy the Maven configuration file
+# Copy the Maven project definition and dependencies
 COPY pom.xml .
-
-# Copy the source code
 COPY src ./src
 
-# Package the application
+# Build the application
+RUN apt-get update && apt-get install -y maven
 RUN mvn clean package -DskipTests
 
-# Stage 2: Create the Docker container
-FROM openjdk:20-jdk-slim
+# Stage 2: Create the final image with the built application
+FROM openjdk:18-jdk-slim
 WORKDIR /app
 
-# Copy the JAR from the build stage
-COPY --from=build /app/target/*.jar app.jar
+# Copy the built application JAR from the build stage
+COPY --from=build /app/target/*.jar /app/SuperPrice.jar
 
+# Expose the port your app runs on
 EXPOSE 8080
-CMD ["java", "-jar", "app.jar"]
+
+# Command to run the application
+CMD ["java", "-jar", "/app/SuperPrice.jar"]

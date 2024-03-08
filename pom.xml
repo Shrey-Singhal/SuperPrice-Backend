@@ -21,7 +21,7 @@
 <!--    <description>SuperPrice</description>-->
 <!--    <description>SuperPrice Web Application</description>-->
     <properties>
-        <java.version>20</java.version>
+        <java.version>18</java.version>
     </properties>
     <dependencies>
         <dependency>
@@ -105,16 +105,15 @@
                 <directory>backend/src/test/resources</directory>
             </testResource>
         </testResources>
-        <sourceDirectory>backend/src/main/java</sourceDirectory>
-        <testSourceDirectory>backend/src/test/java</testSourceDirectory>
+        <sourceDirectory>/src/main/java</sourceDirectory>
+        <testSourceDirectory>/src/test/java</testSourceDirectory>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-<!--                    <classesDirectory>backend/src/main/java/au.edu.rmit.sept.SuperPrice</classesDirectory>-->
-<!--                    <mainClass>"backend/src/main/java/au.edu.rmit.sept.SuperPrice.SuperPriceApp"</mainClass>-->
                     <addResources>true</addResources>
+                    <mainClass>au.edu.rmit.sept.SuperPrice.SuperPriceApp</mainClass>
                 </configuration>
             </plugin>
             <!-- Test Coverage -->
